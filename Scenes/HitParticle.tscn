@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c20pelnyb0tx4"]
+
+[ext_resource type="Texture2D" uid="uid://c7mplteskf6t4" path="res://Sprites/Other/Circle.png" id="1_dwknj"]
+[ext_resource type="Script" uid="uid://dg8q7ajb8qn7j" path="res://Codes/DelayedCall.gd" id="2_dwknj"]
+
+[sub_resource type="Curve" id="Curve_dwknj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13571429, 1), 0.0, 0.0, 0, 0, Vector2(0.9357143, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gdsnw"]
+curve = SubResource("Curve_dwknj")
+
+[sub_resource type="Curve" id="Curve_p7cpt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mm71f"]
+curve = SubResource("Curve_p7cpt")
+
+[sub_resource type="Curve" id="Curve_nsqtd"]
+_limits = [0.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.58333325, 0), 106.692696, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dwknj"]
+curve = SubResource("Curve_nsqtd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dwknj"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(6.065, 17.965, 1)
+spread = 180.0
+velocity_limit_curve = SubResource("CurveTexture_dwknj")
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_mm71f")
+alpha_curve = SubResource("CurveTexture_gdsnw")
+
+[sub_resource type="Curve" id="Curve_gdsnw"]
+_data = [Vector2(0.065476194, 1), 0.0, 0.0, 0, 0, Vector2(0.58928573, 1), 0.0, 0.0, 0, 0, Vector2(0.8452381, 0), -7.5505524, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p7cpt"]
+curve = SubResource("Curve_gdsnw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mm71f"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 63.1
+initial_velocity_max = 154.5
+gravity = Vector3(0, 0, 0)
+damping_min = 63.107002
+damping_max = 70.389
+scale_min = 2.0
+scale_max = 2.0
+alpha_curve = SubResource("CurveTexture_p7cpt")
+
+[node name="HitParticle" type="GPUParticles2D" unique_id=1349464781]
+emitting = false
+amount = 1
+texture = ExtResource("1_dwknj")
+lifetime = 0.28
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 45
+interpolate = false
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_dwknj")
+
+[node name="2" type="GPUParticles2D" parent="." unique_id=452923905]
+emitting = false
+amount = 16
+one_shot = true
+speed_scale = 2.5
+explosiveness = 1.0
+fixed_fps = 8
+interpolate = false
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_mm71f")
+
+[node name="DelayedCall" type="Node" parent="2" unique_id=269128774]
+script = ExtResource("2_dwknj")
+func_name = &"restart"
+time = 0.0
+metadata/_custom_type_script = "uid://dg8q7ajb8qn7j"
+
+[node name="DelayedCall" type="Node" parent="." unique_id=754614185]
+script = ExtResource("2_dwknj")
+metadata/_custom_type_script = "uid://dg8q7ajb8qn7j"

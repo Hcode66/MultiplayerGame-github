@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cpo30mrupt1g4"]
+
+[node name="Self" type="RichTextLabel" unique_id=73777721]
+z_index = 10
+offset_right = 111.0
+offset_bottom = 23.0
+bbcode_enabled = true
+text = "<name+score>"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=696652216]
+z_index = -1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -822.0
+offset_bottom = 23.0
+grow_horizontal = 0

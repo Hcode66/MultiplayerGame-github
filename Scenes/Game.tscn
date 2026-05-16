@@ -1,0 +1,2630 @@
+[gd_scene format=4 uid="uid://dcwkotvb8viqf"]
+
+[ext_resource type="Script" uid="uid://dx26ivu17u131" path="res://Codes/PlayMenu.gd" id="1_gl6un"]
+[ext_resource type="PackedScene" uid="uid://bsus5tnxor85o" path="res://Scenes/TileMapLayer.tscn" id="2_2irst"]
+[ext_resource type="Texture2D" uid="uid://cnwt74w4i3feh" path="res://Sprites/brickWallSpr_normal.png" id="2_dahhg"]
+[ext_resource type="Texture2D" uid="uid://wdlcxd4c8xss" path="res://Sprites/Other/circle2.png" id="3_71axn"]
+[ext_resource type="Texture2D" uid="uid://trnxwvtgfedw" path="res://Sprites/brickWallSpr.png" id="3_kldst"]
+[ext_resource type="Theme" uid="uid://coow3he3d5fd3" path="res://Sprites/Theme/MinimalUI.tres" id="4_3cx6b"]
+[ext_resource type="Texture2D" uid="uid://cyexymdxl5jet" path="res://Sprites/Other/Light.png" id="4_b2bpf"]
+[ext_resource type="Script" uid="uid://c6uogmo276gm2" path="res://Codes/SettingsButton.gd" id="5_x3xnh"]
+[ext_resource type="Script" uid="uid://c0qoj7v8dt850" path="res://Codes/LocalWorld.gd" id="6_4q8tf"]
+[ext_resource type="PackedScene" uid="uid://bc1gyysut48s6" path="res://Scenes/SpawnPoint.tscn" id="6_7lihs"]
+[ext_resource type="Texture2D" uid="uid://c4hg6bt3hxvv2" path="res://Sprites/Menu/sound.png" id="6_8r6kd"]
+[ext_resource type="PackedScene" uid="uid://cvcjlarp35we1" path="res://Scenes/Jump.tscn" id="7_2irst"]
+[ext_resource type="PackedScene" uid="uid://c37q17psuy8bp" path="res://Scenes/DamageArea.tscn" id="7_fgofq"]
+[ext_resource type="Script" uid="uid://cma34br38asdj" path="res://Codes/settingManager.gd" id="7_tfod6"]
+[ext_resource type="Texture2D" uid="uid://diamrdd3g35r2" path="res://Sprites/Terrain/Tilesetv3.tres" id="8_acvyw"]
+[ext_resource type="PackedScene" uid="uid://dfe6rfmpenjh" path="res://Scenes/AudioArea.tscn" id="9_bf53h"]
+[ext_resource type="Texture2D" uid="uid://cnwuj00umo4eb" path="res://Sprites/Terrain/DesertRuins.tres" id="17_x3xnh"]
+[ext_resource type="Script" uid="uid://dg8q7ajb8qn7j" path="res://Codes/DelayedCall.gd" id="21_rajel"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vvhu1"]
+light_mode = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3so38"]
+diffuse_texture = ExtResource("3_kldst")
+normal_texture = ExtResource("2_dahhg")
+texture_repeat = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kldst"]
+bg_color = Color(0.19434929, 0.19434926, 0.19434926, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bpf"]
+bg_color = Color(0.11119679, 0.11119687, 0.11119679, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lihs"]
+bg_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgofq"]
+bg_color = Color(0.288518, 0.28851798, 0.28851798, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2irst"]
+bg_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3so38"]
+
+[sub_resource type="Animation" id="Animation_acvyw"]
+resource_name = "Intro"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(384, -79), Vector2(384, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Host:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(-226, 296), Vector2(224, 296)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Join:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(1152, 296), Vector2(704, 296)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Port:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(464, 648), Vector2(464, 336)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IP:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(464, -40), Vector2(464, 264)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Exit:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(464, 688), Vector2(464, 560)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BG:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0.32987702, 0.32987702),
+"update": 0,
+"values": [Vector2(0, -376), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_alh3a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Name:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(384, 144)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Host:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, 296)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Join:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(704, 296)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Port:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(464, 336)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IP:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(464, 264)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Exit:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(464, 560)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BG:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SettingsPanel:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 96)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SettingsPanel/SettingSound:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 127)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SettingsPanel/HelpLabel:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-120, -136)]
+}
+
+[sub_resource type="Animation" id="Animation_8r6kd"]
+resource_name = "Settings"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsPanel:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(96, 96), Vector2(384, 216)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsPanel/SettingSound:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-128, 127), Vector2(0, 127)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsPanel/HelpLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-120, -136), Vector2(122, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_alh3a"]
+_data = {
+&"Intro": SubResource("Animation_acvyw"),
+&"RESET": SubResource("Animation_alh3a"),
+&"Settings": SubResource("Animation_8r6kd")
+}
+
+[sub_resource type="Curve" id="Curve_alh3a"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_4q8tf"]
+curve = SubResource("Curve_alh3a")
+
+[sub_resource type="Curve" id="Curve_4q8tf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x3xnh"]
+curve = SubResource("Curve_4q8tf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3xnh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(648, 420, 1)
+direction = Vector3(0, 0, 0)
+spread = 87.662
+initial_velocity_min = 23.81
+initial_velocity_max = 128.56999
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_over_velocity_curve = SubResource("CurveTexture_x3xnh")
+alpha_curve = SubResource("CurveTexture_4q8tf")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_alh3a"]
+texture = ExtResource("8_acvyw")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+12:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+0:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+16:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+14:19/0 = 0
+15:19/0 = 0
+16:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+3:20/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+6:20/0 = 0
+7:20/0 = 0
+8:20/0 = 0
+9:20/0 = 0
+10:20/0 = 0
+11:20/0 = 0
+12:20/0 = 0
+13:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+2:21/0 = 0
+3:21/0 = 0
+4:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+7:21/0 = 0
+8:21/0 = 0
+9:21/0 = 0
+10:21/0 = 0
+11:21/0 = 0
+12:21/0 = 0
+13:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+2:22/0 = 0
+3:22/0 = 0
+4:22/0 = 0
+5:22/0 = 0
+6:22/0 = 0
+7:22/0 = 0
+8:22/0 = 0
+9:22/0 = 0
+10:22/0 = 0
+11:22/0 = 0
+12:22/0 = 0
+13:22/0 = 0
+0:23/0 = 0
+1:23/0 = 0
+2:23/0 = 0
+3:23/0 = 0
+4:23/0 = 0
+5:23/0 = 0
+6:23/0 = 0
+0:24/0 = 0
+1:24/0 = 0
+2:24/0 = 0
+3:24/0 = 0
+5:24/0 = 0
+6:24/0 = 0
+11:24/0 = 0
+12:24/0 = 0
+13:24/0 = 0
+14:24/0 = 0
+0:25/0 = 0
+1:25/0 = 0
+5:25/0 = 0
+6:25/0 = 0
+11:25/0 = 0
+12:25/0 = 0
+13:25/0 = 0
+14:25/0 = 0
+0:26/0 = 0
+1:26/0 = 0
+2:26/0 = 0
+3:26/0 = 0
+5:26/0 = 0
+6:26/0 = 0
+7:26/0 = 0
+8:26/0 = 0
+9:26/0 = 0
+11:26/0 = 0
+12:26/0 = 0
+13:26/0 = 0
+14:26/0 = 0
+0:27/0 = 0
+1:27/0 = 0
+2:27/0 = 0
+3:27/0 = 0
+5:27/0 = 0
+6:27/0 = 0
+7:27/0 = 0
+8:27/0 = 0
+9:27/0 = 0
+11:27/0 = 0
+12:27/0 = 0
+13:27/0 = 0
+14:27/0 = 0
+0:28/0 = 0
+1:28/0 = 0
+2:28/0 = 0
+3:28/0 = 0
+5:28/0 = 0
+6:28/0 = 0
+7:28/0 = 0
+8:28/0 = 0
+9:28/0 = 0
+10:28/0 = 0
+11:28/0 = 0
+12:28/0 = 0
+13:28/0 = 0
+14:28/0 = 0
+15:28/0 = 0
+0:29/0 = 0
+1:29/0 = 0
+2:29/0 = 0
+3:29/0 = 0
+5:29/0 = 0
+6:29/0 = 0
+7:29/0 = 0
+8:29/0 = 0
+9:29/0 = 0
+10:29/0 = 0
+11:29/0 = 0
+12:29/0 = 0
+13:29/0 = 0
+15:29/0 = 0
+0:30/0 = 0
+1:30/0 = 0
+2:30/0 = 0
+3:30/0 = 0
+5:30/0 = 0
+6:30/0 = 0
+7:30/0 = 0
+8:30/0 = 0
+9:30/0 = 0
+10:30/0 = 0
+11:30/0 = 0
+12:30/0 = 0
+13:30/0 = 0
+15:30/0 = 0
+0:31/0 = 0
+1:31/0 = 0
+2:31/0 = 0
+3:31/0 = 0
+5:31/0 = 0
+6:31/0 = 0
+7:31/0 = 0
+8:31/0 = 0
+9:31/0 = 0
+10:31/0 = 0
+11:31/0 = 0
+12:31/0 = 0
+13:31/0 = 0
+15:31/0 = 0
+0:32/0 = 0
+1:32/0 = 0
+2:32/0 = 0
+3:32/0 = 0
+10:32/0 = 0
+11:32/0 = 0
+12:32/0 = 0
+13:32/0 = 0
+14:32/0 = 0
+15:32/0 = 0
+0:33/0 = 0
+1:33/0 = 0
+2:33/0 = 0
+3:33/0 = 0
+4:33/0 = 0
+5:33/0 = 0
+6:33/0 = 0
+7:33/0 = 0
+8:33/0 = 0
+9:33/0 = 0
+10:33/0 = 0
+11:33/0 = 0
+12:33/0 = 0
+13:33/0 = 0
+15:33/0 = 0
+0:34/0 = 0
+1:34/0 = 0
+2:34/0 = 0
+3:34/0 = 0
+4:34/0 = 0
+5:34/0 = 0
+6:34/0 = 0
+7:34/0 = 0
+8:34/0 = 0
+9:34/0 = 0
+10:34/0 = 0
+11:34/0 = 0
+12:34/0 = 0
+13:34/0 = 0
+15:34/0 = 0
+0:35/0 = 0
+1:35/0 = 0
+2:35/0 = 0
+3:35/0 = 0
+4:35/0 = 0
+5:35/0 = 0
+6:35/0 = 0
+7:35/0 = 0
+8:35/0 = 0
+9:35/0 = 0
+10:35/0 = 0
+11:35/0 = 0
+12:35/0 = 0
+13:35/0 = 0
+15:35/0 = 0
+0:36/0 = 0
+1:36/0 = 0
+2:36/0 = 0
+3:36/0 = 0
+4:36/0 = 0
+5:36/0 = 0
+6:36/0 = 0
+7:36/0 = 0
+8:36/0 = 0
+9:36/0 = 0
+10:36/0 = 0
+11:36/0 = 0
+12:36/0 = 0
+13:36/0 = 0
+14:36/0 = 0
+15:36/0 = 0
+0:37/0 = 0
+1:37/0 = 0
+2:37/0 = 0
+3:37/0 = 0
+4:37/0 = 0
+5:37/0 = 0
+6:37/0 = 0
+7:37/0 = 0
+8:37/0 = 0
+9:37/0 = 0
+10:37/0 = 0
+11:37/0 = 0
+12:37/0 = 0
+13:37/0 = 0
+14:37/0 = 0
+15:37/0 = 0
+0:38/0 = 0
+1:38/0 = 0
+2:38/0 = 0
+3:38/0 = 0
+4:38/0 = 0
+5:38/0 = 0
+6:38/0 = 0
+7:38/0 = 0
+8:38/0 = 0
+9:38/0 = 0
+10:38/0 = 0
+11:38/0 = 0
+12:38/0 = 0
+13:38/0 = 0
+14:38/0 = 0
+15:38/0 = 0
+0:39/0 = 0
+1:39/0 = 0
+2:39/0 = 0
+4:39/0 = 0
+5:39/0 = 0
+6:39/0 = 0
+7:39/0 = 0
+8:39/0 = 0
+9:39/0 = 0
+10:39/0 = 0
+11:39/0 = 0
+12:39/0 = 0
+13:39/0 = 0
+14:39/0 = 0
+15:39/0 = 0
+0:40/0 = 0
+1:40/0 = 0
+2:40/0 = 0
+4:40/0 = 0
+5:40/0 = 0
+6:40/0 = 0
+7:40/0 = 0
+8:40/0 = 0
+9:40/0 = 0
+10:40/0 = 0
+11:40/0 = 0
+12:40/0 = 0
+13:40/0 = 0
+14:40/0 = 0
+15:40/0 = 0
+1:41/0 = 0
+2:41/0 = 0
+3:41/0 = 0
+4:41/0 = 0
+5:41/0 = 0
+6:41/0 = 0
+7:41/0 = 0
+8:41/0 = 0
+9:41/0 = 0
+10:41/0 = 0
+11:41/0 = 0
+12:41/0 = 0
+13:41/0 = 0
+14:41/0 = 0
+15:41/0 = 0
+1:42/0 = 0
+2:42/0 = 0
+3:42/0 = 0
+4:42/0 = 0
+5:42/0 = 0
+6:42/0 = 0
+7:42/0 = 0
+8:42/0 = 0
+9:42/0 = 0
+0:43/0 = 0
+1:43/0 = 0
+2:43/0 = 0
+3:43/0 = 0
+4:43/0 = 0
+5:43/0 = 0
+6:43/0 = 0
+7:43/0 = 0
+8:43/0 = 0
+9:43/0 = 0
+13:43/0 = 0
+0:44/0 = 0
+1:44/0 = 0
+2:44/0 = 0
+3:44/0 = 0
+4:44/0 = 0
+5:44/0 = 0
+6:44/0 = 0
+7:44/0 = 0
+8:44/0 = 0
+9:44/0 = 0
+11:44/0 = 0
+12:44/0 = 0
+13:44/0 = 0
+14:44/0 = 0
+0:45/0 = 0
+1:45/0 = 0
+2:45/0 = 0
+4:45/0 = 0
+5:45/0 = 0
+6:45/0 = 0
+7:45/0 = 0
+8:45/0 = 0
+9:45/0 = 0
+12:45/0 = 0
+13:45/0 = 0
+4:46/0 = 0
+5:46/0 = 0
+6:46/0 = 0
+7:46/0 = 0
+8:46/0 = 0
+9:46/0 = 0
+10:46/0 = 0
+11:46/0 = 0
+12:46/0 = 0
+4:47/0 = 0
+5:47/0 = 0
+6:47/0 = 0
+7:47/0 = 0
+8:47/0 = 0
+9:47/0 = 0
+12:47/0 = 0
+4:48/0 = 0
+5:48/0 = 0
+6:48/0 = 0
+7:48/0 = 0
+8:48/0 = 0
+9:48/0 = 0
+10:48/0 = 0
+11:48/0 = 0
+12:48/0 = 0
+4:49/0 = 0
+5:49/0 = 0
+7:49/0 = 0
+8:49/0 = 0
+9:49/0 = 0
+10:49/0 = 0
+11:49/0 = 0
+12:49/0 = 0
+13:49/0 = 0
+4:50/0 = 0
+5:50/0 = 0
+7:50/0 = 0
+8:50/0 = 0
+9:50/0 = 0
+11:50/0 = 0
+12:50/0 = 0
+13:50/0 = 0
+10:51/0 = 0
+11:51/0 = 0
+12:51/0 = 0
+13:51/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4q8tf"]
+sources/0 = SubResource("TileSetAtlasSource_alh3a")
+
+[sub_resource type="Curve" id="Curve_dahhg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.16666666, 1), 0.0, 0.0, 0, 0, Vector2(0.6666666, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3so38"]
+curve = SubResource("Curve_dahhg")
+
+[sub_resource type="Curve" id="Curve_acvyw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.2, 0.6), -0.026186774, -0.026186774, 0, 0, Vector2(0.3, 1), 0.0, 0.0, 0, 0, Vector2(0.4, 0.4), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 0.4), 0.0, 0.0, 0, 0, Vector2(0.7, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 0.2), 0.0, 0.0, 0, 0, Vector2(0.90000004, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 11
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_alh3a"]
+curve = SubResource("Curve_acvyw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3cx6b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 500, 1)
+angle_min = -720.0
+angle_max = 720.0
+orbit_velocity_min = -0.049999908
+orbit_velocity_max = 0.050000098
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_alh3a")
+alpha_curve = SubResource("CurveTexture_3so38")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rajel"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 600, 1)
+angle_min = -720.0
+angle_max = 720.0
+orbit_velocity_min = -0.049999908
+orbit_velocity_max = 0.050000098
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.5
+scale_curve = SubResource("CurveTexture_alh3a")
+alpha_curve = SubResource("CurveTexture_3so38")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wxwew"]
+diffuse_texture = ExtResource("3_kldst")
+normal_texture = ExtResource("2_dahhg")
+
+[node name="Game" type="Node2D" unique_id=746697199]
+metadata/_edit_horizontal_guides_ = [-1216.0]
+
+[node name="UI" type="Control" parent="." unique_id=1621605526]
+visible = false
+visibility_layer = 3
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="PlayMenu" type="TextureRect" parent="UI" unique_id=1959078897 node_paths=PackedStringArray("debug_label", "canvasModulate", "localWorld")]
+self_modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_3so38")
+stretch_mode = 1
+script = ExtResource("1_gl6un")
+debug_label = NodePath("../../CanvasLayer/Label")
+canvasModulate = NodePath("../../CanvasModulate")
+localWorld = NodePath("../../World")
+
+[node name="BG" type="TextureRect" parent="UI/PlayMenu" unique_id=683861258]
+self_modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -864.0
+offset_bottom = -485.99988
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.441556, 6.441556)
+mouse_filter = 2
+texture = SubResource("CanvasTexture_3so38")
+stretch_mode = 1
+
+[node name="Host" type="Button" parent="UI/PlayMenu" unique_id=1571965789]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = -28.0
+offset_right = -127.9986
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2bpf")
+text = "Host"
+
+[node name="Join" type="Button" parent="UI/PlayMenu" unique_id=1921027221]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -28.0
+offset_right = 352.00073
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2bpf")
+text = "Join"
+
+[node name="Port" type="LineEdit" parent="UI/PlayMenu" unique_id=990084967]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 0
+offset_left = 464.0
+offset_top = 336.0
+offset_right = 688.0
+offset_bottom = 375.9997
+theme_override_styles/normal = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2bpf")
+text = "29292"
+placeholder_text = "Port"
+
+[node name="IP" type="LineEdit" parent="UI/PlayMenu" unique_id=1719443177]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 0
+offset_left = 464.0
+offset_top = 264.0
+offset_right = 688.0
+offset_bottom = 304.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b2bpf")
+text = "localhost"
+placeholder_text = "IP adress:"
+alignment = 1
+
+[node name="Name" type="LineEdit" parent="UI/PlayMenu" unique_id=834505534]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 144.0
+offset_right = 191.99927
+offset_bottom = 184.00021
+grow_horizontal = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7lihs")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_fgofq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2irst")
+text = "Human"
+placeholder_text = "Name"
+alignment = 1
+max_length = 28
+clear_button_enabled = true
+caret_blink = true
+caret_blink_interval = 0.3
+
+[node name="Version" type="Label" parent="UI/PlayMenu" unique_id=2078172882]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 0
+offset_left = 872.0
+offset_top = 584.0
+offset_right = 1136.0
+offset_bottom = 648.0
+text = "000.000.000"
+label_settings = SubResource("LabelSettings_3so38")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="UI/PlayMenu" unique_id=208814190]
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 236.0
+offset_right = 112.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 8
+theme = ExtResource("4_3cx6b")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="ConnectionTimer" type="Timer" parent="UI/PlayMenu" unique_id=1894392187]
+wait_time = 4.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PlayMenu" unique_id=1675013351]
+libraries/ = SubResource("AnimationLibrary_alh3a")
+autoplay = &"Intro"
+speed_scale = 4.0
+
+[node name="MenuParticles" type="GPUParticles2D" parent="UI/PlayMenu" unique_id=1566378001]
+position = Vector2(577, 321)
+amount = 32
+fixed_fps = 24
+interpolate = false
+trail_lifetime = 0.2
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_x3xnh")
+
+[node name="SettingsPanel" type="Panel" parent="UI/PlayMenu" unique_id=132728119]
+z_index = 15
+material = SubResource("CanvasItemMaterial_vvhu1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1056.0
+offset_bottom = -552.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="HelpLabel" type="RichTextLabel" parent="UI/PlayMenu/SettingsPanel" unique_id=662398752]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -136.0
+offset_right = 142.0
+offset_bottom = 78.0
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[color=yellow]Controls:
+[color=green]Run - A/D
+Jump - Space
+[font_size=14]Attack/Dash - Mouse Left / Mouse Right
+[font_size=16]Scoreboard - Quote
+Upgrades - TAB
+Screen mode - F11"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SettingMenu" type="Button" parent="UI/PlayMenu/SettingsPanel" unique_id=595253563]
+layout_mode = 1
+offset_right = 120.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 14
+text = "Settings"
+script = ExtResource("5_x3xnh")
+
+[node name="SettingSound" type="Button" parent="UI/PlayMenu/SettingsPanel" unique_id=1539147909]
+layout_mode = 0
+offset_left = -128.0
+offset_top = 127.0
+offset_right = -5.9999847
+offset_bottom = 197.0
+text = "On"
+icon = ExtResource("6_8r6kd")
+
+[node name="SettingManager" type="Node" parent="UI/PlayMenu/SettingsPanel" unique_id=1961930238]
+script = ExtResource("7_tfod6")
+
+[node name="Light" type="PointLight2D" parent="UI" unique_id=2090626527]
+position = Vector2(592, 328)
+scale = Vector2(1.15625, 1.15625)
+energy = 1.85
+texture = ExtResource("3_71axn")
+height = 128.0
+metadata/_edit_lock_ = true
+
+[node name="World" type="Node2D" parent="." unique_id=1532873982 groups=["World"]]
+script = ExtResource("6_4q8tf")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="World" unique_id=1629836177]
+_spawnable_scenes = PackedStringArray("uid://bbxwy54gw5lkq", "uid://ccurewo0sry2t")
+spawn_path = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="World" unique_id=1103450992]
+z_index = -50
+offset_left = -6688.0
+offset_top = -6688.0
+offset_right = 6728.0
+offset_bottom = 6728.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Light" type="PointLight2D" parent="World" unique_id=2109212398]
+visible = false
+position = Vector2(-80, -304)
+scale = Vector2(4.875001, 4.875001)
+texture = ExtResource("4_b2bpf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Light" unique_id=111738373]
+
+[node name="Tilemaps" type="Node2D" parent="World" unique_id=1611096652]
+scale = Vector2(2, 2)
+
+[node name="TileProp" type="TileMapLayer" parent="World/Tilemaps" unique_id=1212403297]
+light_mask = 22
+tile_map_data = PackedByteArray("AAD5/wEAAAAAABoAAAD5/wIAAAAAABsAAAD6/wEAAAABABoAAAD6/wIAAAABABsAAAAFAAEAAAAAABoAAAAFAAIAAAAAABsAAAAGAAEAAAABABoAAAAGAAIAAAABABsAAAD5//L/AAACACYAAAD6//L/AAADACYAAAANAAEAAAADACIAAAANAAIAAAADACMAAAABAPL/AAAEACQAAAACAPL/AAAFACQAAAD2//L/AAABACUAAAAJAPL/AAABACUAABADAOT/AAABACUAAAD8/+T/AAABACUAABDy/wIAAAABACUAAAA=")
+tile_set = SubResource("TileSet_4q8tf")
+metadata/_edit_lock_ = true
+
+[node name="TileMain" parent="World/Tilemaps" unique_id=2087227041 instance=ExtResource("2_2irst")]
+scale = Vector2(1, 1)
+tile_map_data = PackedByteArray("AAAQAAUAAAAEAAsAAAAQAAQAAAAEAAkAAAAQAAMAAAAEAAgAAAAPAAUAAAABAAsAAAAPAAQAAAABAAoAAAAPAAMAAAABAAgAAAAOAAUAAAABAAsAAAAOAAQAAAABAAoAAAAOAAMAAAABAAgAAAANAAUAAAABAAsAAAANAAQAAAABAAoAAAANAAMAAAABAAgAAAAMAAUAAAABAAsAAAAMAAQAAAABAAoAAAAMAAMAAAABAAgAAAALAAUAAAABAAsAAAALAAQAAAABAAoAAAALAAMAAAABAAgAAAAKAAUAAAABAAsAAAAKAAQAAAABAAoAAAAKAAMAAAABAAgAAAAJAAUAAAABAAsAAAAJAAQAAAABAAoAAAAJAAMAAAABAAgAAAAIAAUAAAABAAsAAAAIAAQAAAABAAoAAAAIAAMAAAABAAgAAAAHAAUAAAABAAsAAAAHAAQAAAABAAoAAAAHAAMAAAABAAgAAAAGAAUAAAABAAsAAAAGAAQAAAABAAoAAAAGAAMAAAABAAgAAAAFAAUAAAABAAsAAAAFAAQAAAABAAoAAAAFAAMAAAABAAgAAAAEAAUAAAABAAsAAAAEAAQAAAABAAoAAAAEAAMAAAABAAgAAAADAAUAAAABAAsAAAADAAQAAAABAAoAAAADAAMAAAABAAgAAAACAAUAAAABAAsAAAACAAQAAAABAAoAAAACAAMAAAABAAgAAAABAAUAAAABAAsAAAABAAQAAAABAAoAAAABAAMAAAABAAgAAAAAAAUAAAABAAsAAAAAAAQAAAABAAoAAAAAAAMAAAABAAgAAAD//wUAAAABAAsAAAD//wQAAAABAAoAAAD//wMAAAABAAgAAAD+/wUAAAABAAsAAAD+/wQAAAABAAoAAAD+/wMAAAABAAgAAAD9/wUAAAABAAsAAAD9/wQAAAABAAoAAAD9/wMAAAABAAgAAAD8/wUAAAABAAsAAAD8/wQAAAABAAoAAAD8/wMAAAABAAgAAAD7/wUAAAABAAsAAAD7/wQAAAABAAoAAAD7/wMAAAABAAgAAAD6/wUAAAABAAsAAAD6/wQAAAABAAoAAAD6/wMAAAABAAgAAAD5/wUAAAABAAsAAAD5/wQAAAABAAoAAAD5/wMAAAABAAgAAAD4/wUAAAABAAsAAAD4/wQAAAABAAoAAAD4/wMAAAABAAgAAAD3/wUAAAABAAsAAAD3/wQAAAABAAoAAAD3/wMAAAABAAgAAAD2/wUAAAABAAsAAAD2/wQAAAABAAoAAAD2/wMAAAABAAgAAAD1/wUAAAABAAsAAAD1/wQAAAABAAoAAAD1/wMAAAABAAgAAAD0/wUAAAABAAsAAAD0/wQAAAABAAoAAAD0/wMAAAABAAgAAADz/wUAAAABAAsAAADz/wQAAAABAAoAAADz/wMAAAABAAgAAADy/wUAAAABAAsAAADy/wQAAAABAAoAAADy/wMAAAABAAgAAADx/wUAAAABAAsAAADx/wQAAAABAAoAAADx/wMAAAABAAgAAADw/wUAAAABAAsAAADw/wQAAAABAAoAAADw/wMAAAABAAgAAADv/wUAAAAAAAsAAADv/wQAAAAAAAkAAADv/wMAAAAAAAgAAAATAAUAAQADAAMAAAATAAQAAQAFAAIAAAATAAMAAQADAAIAAAATAAIAAQADAAIAAAATAAEAAQAFAAIAAAATAAAAAQADAAIAAAATAP//AQADAAIAAAATAP7/AQAFAAIAAAATAP3/AQADAAIAAAATAPz/AQADAAIAAAATAPv/AQAFAAIAAAATAPr/AQADAAIAAAATAPn/AQAFAAIAAAATAPj/AQAFAAEAAAATAPf/AQACAAIAAAATAPb/AQACAAIAAAATAOn/AQADAAMAAAATAOj/AQAFAAIAAAATAOf/AQAFAAIAAAATAOb/AQADAAIAAAATAOX/AQADAAIAAAATAOT/AQAFAAIAAAATAOP/AQADAAIAAAATAOL/AQADAAIAAAATAOH/AQAFAAIAAAATAOD/AQADAAIAAAATAN//AQAFAAIAAAATAN7/AQAFAAIAAAATAN3/AQAFAAIAAAATANz/AQAFAAIAAAATANv/AQAFAAIAAAATANr/AQAFAAIAAAASAAUAAQACAAMAAAASAAQAAQACAAIAAAASAAMAAQACAAIAAAASAAIAAQACAAIAAAASAAEAAQACAAIAAAASAAAAAQACAAIAAAASAP//AQACAAIAAAASAP7/AQACAAIAAAASAP3/AQACAAIAAAASAPz/AQACAAIAAAASAPv/AQACAAIAAAASAPr/AQACAAIAAAASAPn/AQACAAIAAAASAPj/AQACAAIAAAASAPf/AQACAAIAAAASAPb/AQACAAIAAAASAOr/AQADAAMAAAASAOn/AQAFAAEAAAASAOj/AQACAAIAAAASAOf/AQACAAIAAAASAOb/AQACAAIAAAASAOX/AQACAAIAAAASAOT/AQACAAIAAAASAOP/AQACAAIAAAASAOL/AQACAAIAAAASAOH/AQACAAIAAAASAOD/AQACAAIAAAASAN//AQACAAIAAAASAN7/AQACAAIAAAASAN3/AQACAAIAAAASANz/AQACAAIAAAASANv/AQACAAIAAAASANr/AQACAAIAAAARAAUAAQABAAMAAAARAAQAAQABAAIAAAARAAMAAQABAAIAAAARAAIAAQAHAAEAAAARAAEAAQACAAIAAAARAAAAAQACAAIAAAARAP//AQACAAIAAAARAP7/AQACAAIAAAARAP3/AQACAAIAAAARAPz/AQAHAAMAAAARAPv/AQAHAAIAAAARAPr/AQAHAAIAAAARAPn/AQABAAIAAAARAPj/AQAHAAIAAAARAPf/AQAHAAIAAAARAPb/AQABAAIAAAARAOv/AQADAAMAAAARAOr/AQAFAAEAAAARAOn/AQACAAIAAAARAOj/AQACAAIAAAARAOf/AQACAAIAAAARAOb/AQACAAIAAAARAOX/AQAHAAMAAAARAOT/AQABAAIAAAARAOP/AQABAAIAAAARAOL/AQAHAAIAAAARAOH/AQAHAAIAAAARAOD/AQABAAIAAAARAN//AQABAAIAAAARAN7/AQABAAIAAAARAN3/AQABAAIAAAARANz/AQABAAIAAAARANv/AQAHAAEAAAARANr/AQACAAIAAADu/wUAAQADAAMAAADu/wQAAQADAAIAAADu/wMAAQAFAAIAAADu/wIAAQAFAAEAAADu/wEAAQACAAIAAADu/wAAAQACAAIAAADu////AQACAAIAAADu//7/AQACAAIAAADu//3/AQACAAIAAADu//z/AQAFAAMAAADu//v/AQAFAAIAAADu//r/AQAFAAIAAADu//n/AQADAAIAAADu//j/AQAFAAIAAADu//f/AQAFAAIAAADu//b/AQADAAIAAADu//X/AQADAAEAAADu/+v/AQABAAMAAADu/+r/AQAHAAEAAADu/+n/AQACAAIAAADu/+j/AQACAAIAAADu/+f/AQACAAIAAADu/+b/AQACAAIAAADu/+X/AQAFAAMAAADu/+T/AQADAAIAAADu/+P/AQAFAAIAAADu/+L/AQAFAAIAAADu/+H/AQADAAIAAADu/+D/AQAFAAIAAADu/9//AQAFAAIAAADu/97/AQADAAIAAADu/93/AQAFAAIAAADu/9z/AQAFAAIAAADu/9v/AQAFAAEAAADu/9r/AQACAAIAAADt/wUAAQACAAMAAADt/wQAAQACAAIAAADt/wMAAQACAAIAAADt/wIAAQACAAIAAADt/wEAAQACAAIAAADt/wAAAQACAAIAAADt////AQACAAIAAADt//7/AQACAAIAAADt//3/AQACAAIAAADt//z/AQACAAIAAADt//v/AQACAAIAAADt//r/AQACAAIAAADt//n/AQACAAIAAADt//j/AQACAAIAAADt//f/AQACAAIAAADt//b/AQACAAIAAADt//X/AQAGAAMAAADt/+r/AQABAAMAAADt/+n/AQAHAAEAAADt/+j/AQACAAIAAADt/+f/AQACAAIAAADt/+b/AQACAAIAAADt/+X/AQACAAIAAADt/+T/AQACAAIAAADt/+P/AQACAAIAAADt/+L/AQACAAIAAADt/+H/AQACAAIAAADt/+D/AQACAAIAAADt/9//AQACAAIAAADt/97/AQACAAIAAADt/93/AQACAAIAAADt/9z/AQACAAIAAADt/9v/AQACAAIAAADt/9r/AQACAAIAAADs/wUAAQABAAMAAADs/wQAAQAHAAIAAADs/wMAAQABAAIAAADs/wIAAQAHAAIAAADs/wEAAQABAAIAAADs/wAAAQAHAAIAAADs////AQAHAAIAAADs//7/AQAHAAIAAADs//3/AQABAAIAAADs//z/AQABAAIAAADs//v/AQABAAIAAADs//r/AQAHAAIAAADs//n/AQABAAIAAADs//j/AQAHAAEAAADs//f/AQACAAIAAADs//b/AQACAAIAAADs//X/AQAGAAMAAADs/+n/AQABAAMAAADs/+j/AQAHAAIAAADs/+f/AQABAAIAAADs/+b/AQABAAIAAADs/+X/AQAHAAIAAADs/+T/AQABAAIAAADs/+P/AQABAAIAAADs/+L/AQABAAIAAADs/+H/AQAHAAIAAADs/+D/AQAHAAIAAADs/9//AQAHAAIAAADs/97/AQAHAAIAAADs/93/AQABAAIAAADs/9z/AQABAAIAAADs/9v/AQAHAAIAAADs/9r/AQAHAAIAAAAQAAIAAQAGAAEAAAAQAAEAAQACAAIAAAAQAAAAAQACAAIAAAAQAP//AQACAAIAAAAQAP7/AQACAAIAAAAQAP3/AQACAAIAAAAQAPz/AQAGAAMAAAAPAAIAAQAGAAEAAAAPAAEAAQACAAIAAAAPAAAAAQACAAIAAAAPAP//AQACAAIAAAAPAP7/AQACAAIAAAAPAP3/AQACAAIAAAAPAPz/AQAGAAMAAAAOAAIAAQABAAMAAAAOAAEAAQABAAIAAAAOAAAAAQABAAIAAAAOAP//AQAHAAEAAAAOAP7/AQACAAIAAAAOAP3/AQACAAIAAAAOAPz/AQACAAEAAAANAP//AQAGAAEAAAANAP7/AQACAAIAAAANAP3/AQACAAIAAAANAPz/AQAGAAMAAAAMAP//AQAGAAEAAAAMAP7/AQACAAIAAAAMAP3/AQAHAAMAAAAMAPz/AQABAAEAAAALAP//AQAGAAEAAAALAP7/AQAHAAMAAAALAP3/AQABAAEAAAAKAP//AQABAAMAAAAKAP7/AQABAAEAAAD1////AQADAAMAAAD1//7/AQADAAEAAAD0////AQACAAMAAAD0//7/AQAFAAMAAAD0//3/AQADAAEAAADz////AQAGAAEAAADz//7/AQACAAIAAADz//3/AQAFAAMAAADz//z/AQADAAEAAADy////AQACAAMAAADy//7/AQACAAIAAADy//3/AQACAAIAAADy//z/AQACAAEAAADx////AQAFAAEAAADx//7/AQACAAIAAADx//3/AQACAAIAAADx//z/AQACAAEAAADw/wIAAQACAAMAAADw/wEAAQACAAIAAADw/wAAAQACAAIAAADw////AQACAAIAAADw//7/AQACAAIAAADw//3/AQACAAIAAADw//z/AQACAAEAAADv/wIAAQACAAMAAADv/wEAAQACAAIAAADv/wAAAQACAAIAAADv////AQACAAIAAADv//7/AQACAAIAAADv//3/AQACAAIAAADv//z/AQACAAEAAAAJAPT/AQADAAMAAAAJAPP/AQADAAEAAAAIAPX/AQADAAMAAAAIAPT/AQAFAAEAAAAIAPP/AQACAAEAAAAHAPb/AQADAAMAAAAHAPX/AQAFAAEAAAAHAPT/AQACAAIAAAAHAPP/AQACAAEAAAAGAPb/AQAFAAEAAAAGAPX/AQACAAIAAAAGAPT/AQACAAIAAAAGAPP/AQACAAEAAAAFAPb/AQACAAIAAAAFAPX/AQACAAIAAAAFAPT/AQACAAIAAAAFAPP/AQACAAEAAAAEAPb/AQACAAIAAAAEAPX/AQACAAIAAAAEAPT/AQACAAIAAAAEAPP/AQACAAEAAAADAPb/AQACAAIAAAADAPX/AQACAAIAAAADAPT/AQACAAIAAAADAPP/AQAGAAMAAAACAPb/AQACAAIAAAACAPX/AQACAAIAAAACAPT/AQACAAIAAAACAPP/AQACAAEAAAABAPb/AQACAAIAAAABAPX/AQACAAIAAAABAPT/AQACAAIAAAABAPP/AQAGAAMAAAAAAPb/AQACAAIAAAAAAPX/AQACAAIAAAAAAPT/AQACAAIAAAAAAPP/AQACAAEAAAD///b/AQACAAIAAAD///X/AQACAAIAAAD///T/AQACAAIAAAD///P/AQACAAEAAAD+//b/AQACAAIAAAD+//X/AQACAAIAAAD+//T/AQACAAIAAAD+//P/AQACAAEAAAD9//b/AQACAAIAAAD9//X/AQACAAIAAAD9//T/AQACAAIAAAD9//P/AQAGAAMAAAD8//b/AQACAAIAAAD8//X/AQACAAIAAAD8//T/AQACAAIAAAD8//P/AQAGAAMAAAD7//b/AQACAAIAAAD7//X/AQACAAIAAAD7//T/AQACAAIAAAD7//P/AQACAAEAAAD6//b/AQACAAIAAAD6//X/AQACAAIAAAD6//T/AQACAAIAAAD6//P/AQAGAAMAAAD5//b/AQAHAAEAAAD5//X/AQACAAIAAAD5//T/AQACAAIAAAD5//P/AQACAAEAAAD4//b/AQABAAMAAAD4//X/AQAHAAEAAAD4//T/AQACAAIAAAD4//P/AQAGAAMAAAD3//X/AQABAAMAAAD3//T/AQAHAAEAAAD3//P/AQACAAEAAAD2//T/AQABAAMAAAD2//P/AQABAAEAAAAQAOv/AQAGAAEAAAAQAOr/AQACAAIAAAAQAOn/AQACAAIAAAAQAOj/AQACAAIAAAAQAOf/AQACAAIAAAAQAOb/AQACAAIAAAAQAOX/AQACAAEAAAAPAOv/AQAGAAEAAAAPAOr/AQACAAIAAAAPAOn/AQACAAIAAAAPAOj/AQACAAIAAAAPAOf/AQACAAIAAAAPAOb/AQACAAIAAAAPAOX/AQACAAEAAAAOAOv/AQACAAMAAAAOAOr/AQACAAIAAAAOAOn/AQACAAIAAAAOAOj/AQACAAIAAAAOAOf/AQACAAIAAAAOAOb/AQACAAIAAAAOAOX/AQACAAEAAAANAOv/AQACAAMAAAANAOr/AQACAAIAAAANAOn/AQACAAIAAAANAOj/AQACAAIAAAANAOf/AQACAAIAAAANAOb/AQACAAIAAAANAOX/AQACAAEAAAAMAOv/AQACAAMAAAAMAOr/AQACAAIAAAAMAOn/AQACAAIAAAAMAOj/AQACAAIAAAAMAOf/AQACAAIAAAAMAOb/AQACAAIAAAAMAOX/AQAGAAMAAAALAOv/AQACAAMAAAALAOr/AQACAAIAAAALAOn/AQACAAIAAAALAOj/AQACAAIAAAALAOf/AQACAAIAAAALAOb/AQACAAIAAAALAOX/AQACAAEAAAAKAOv/AQABAAMAAAAKAOr/AQAHAAIAAAAKAOn/AQAHAAIAAAAKAOj/AQABAAIAAAAKAOf/AQAHAAIAAAAKAOb/AQAHAAIAAAAKAOX/AQABAAEAAAD1/+v/AQADAAMAAAD1/+r/AQAFAAIAAAD1/+n/AQADAAIAAAD1/+j/AQADAAIAAAD1/+f/AQAFAAIAAAD1/+b/AQAFAAIAAAD1/+X/AQADAAEAAAD0/+v/AQACAAMAAAD0/+r/AQACAAIAAAD0/+n/AQACAAIAAAD0/+j/AQACAAIAAAD0/+f/AQACAAIAAAD0/+b/AQACAAIAAAD0/+X/AQAGAAMAAADz/+v/AQAGAAEAAADz/+r/AQACAAIAAADz/+n/AQACAAIAAADz/+j/AQACAAIAAADz/+f/AQACAAIAAADz/+b/AQACAAIAAADz/+X/AQAGAAMAAADy/+v/AQAGAAEAAADy/+r/AQACAAIAAADy/+n/AQACAAIAAADy/+j/AQACAAIAAADy/+f/AQACAAIAAADy/+b/AQACAAIAAADy/+X/AQAGAAMAAADx/+v/AQAGAAEAAADx/+r/AQACAAIAAADx/+n/AQACAAIAAADx/+j/AQACAAIAAADx/+f/AQACAAIAAADx/+b/AQACAAIAAADx/+X/AQACAAEAAADw/+v/AQAGAAEAAADw/+r/AQACAAIAAADw/+n/AQACAAIAAADw/+j/AQACAAIAAADw/+f/AQACAAIAAADw/+b/AQACAAIAAADw/+X/AQAGAAMAAADv/+v/AQACAAMAAADv/+r/AQACAAIAAADv/+n/AQACAAIAAADv/+j/AQACAAIAAADv/+f/AQACAAIAAADv/+b/AQACAAIAAADv/+X/AQACAAEAAAAQANv/AQACAAMAAAAQANr/AQACAAIAAAAPANv/AQAGAAEAAAAPANr/AQACAAIAAAAOANv/AQACAAMAAAAOANr/AQACAAIAAAANANv/AQACAAMAAAANANr/AQACAAIAAAAMANv/AQACAAMAAAAMANr/AQACAAIAAAALANv/AQAGAAEAAAALANr/AQACAAIAAAAKANv/AQAGAAEAAAAKANr/AQACAAIAAAAJANv/AQAGAAEAAAAJANr/AQACAAIAAAAIANv/AQAGAAEAAAAIANr/AQACAAIAAAAHANv/AQAGAAEAAAAHANr/AQACAAIAAAAGANv/AQAGAAEAAAAGANr/AQACAAIAAAAFANv/AQACAAMAAAAFANr/AQACAAIAAAAEANv/AQAGAAEAAAAEANr/AQACAAIAAAADANv/AQAGAAEAAAADANr/AQACAAIAAAACANv/AQAGAAEAAAACANr/AQACAAIAAAABANv/AQAGAAEAAAABANr/AQACAAIAAAAAANv/AQACAAMAAAAAANr/AQACAAIAAAD//9v/AQACAAMAAAD//9r/AQACAAIAAAD+/9v/AQACAAMAAAD+/9r/AQACAAIAAAD9/9v/AQAGAAEAAAD9/9r/AQACAAIAAAD8/9v/AQACAAMAAAD8/9r/AQACAAIAAAD7/9v/AQAGAAEAAAD7/9r/AQACAAIAAAD6/9v/AQAGAAEAAAD6/9r/AQACAAIAAAD5/9v/AQACAAMAAAD5/9r/AQACAAIAAAD4/9v/AQACAAMAAAD4/9r/AQACAAIAAAD3/9v/AQAGAAEAAAD3/9r/AQACAAIAAAD2/9v/AQACAAMAAAD2/9r/AQACAAIAAAD1/9v/AQAGAAEAAAD1/9r/AQACAAIAAAD0/9v/AQAGAAEAAAD0/9r/AQACAAIAAADz/9v/AQACAAMAAADz/9r/AQACAAIAAADy/9v/AQACAAMAAADy/9r/AQACAAIAAADx/9v/AQAGAAEAAADx/9r/AQACAAIAAADw/9v/AQACAAMAAADw/9r/AQACAAIAAADv/9v/AQAGAAEAAADv/9r/AQACAAIAAAD///f/AQAGAAEAAAD+//f/AQACAAMAAAD9//f/AQACAAMAAAD8//f/AQACAAMAAAD7//f/AQACAAMAAAD6//f/AQACAAMAAAD5//f/AQABAAMAAAAGAPf/AQADAAMAAAAFAPf/AQAGAAEAAAAEAPf/AQAGAAEAAAADAPf/AQACAAMAAAACAPf/AQAGAAEAAAABAPf/AQACAAMAAAAAAPf/AQACAAMAAAABAOr/AQADAAMAAAABAOn/AQAFAAEAAAABAOj/AQACAAIAAAABAOf/AQACAAIAAAABAOb/AQACAAIAAAABAOX/AQAGAAMAAAAAAOr/AQAGAAEAAAAAAOn/AQACAAIAAAAAAOj/AQACAAIAAAAAAOf/AQACAAIAAAAAAOb/AQACAAIAAAAAAOX/AQAFAAMAAAD//+r/AQACAAMAAAD//+n/AQACAAIAAAD//+j/AQACAAIAAAD//+f/AQACAAIAAAD//+b/AQACAAIAAAD//+X/AQAHAAMAAAD+/+r/AQABAAMAAAD+/+n/AQAHAAEAAAD+/+j/AQACAAIAAAD+/+f/AQACAAIAAAD+/+b/AQACAAIAAAD+/+X/AQACAAEAAAD9/+j/AQAHAAEAAAD9/+f/AQACAAIAAAD9/+b/AQACAAIAAAD9/+X/AQACAAEAAAD8/+j/AQABAAMAAAD8/+f/AQABAAIAAAD8/+b/AQAHAAIAAAD8/+X/AQABAAEAAAADAOj/AQADAAMAAAADAOf/AQAFAAIAAAADAOb/AQADAAIAAAADAOX/AQADAAEAAAACAOj/AQAFAAEAAAACAOf/AQACAAIAAAACAOb/AQACAAIAAAACAOX/AQAGAAMAAAD9/+n/AQABAAMAAAACAOn/AQADAAMAAAAAAOT/AQAFAAIAAAD//+T/AQABAAIAAAATAPX/AQAGAAMAAAASAPX/AQACAAEAAAARAPX/AQABAAEAAADx/wIAAQADAAMAAADx/wEAAQADAAIAAADx/wAAAQADAAIAAAAAAOP/AQADAAEAAAD//+P/AQABAAEAAAAAAOL/AAAEABMAAAD//+L/AAAEABMAAAD+/+v/AAAEABMAACD//+v/AAAEABMAACAAAOv/AAAEABMAACABAOv/AAAEABMAACD9/+r/AAAEABMAACACAOr/AAAEABMAACATANn/AQADAAIAAAATANj/AQADAAEAAAASANn/AQACAAIAAAASANj/AQAGAAMAAAARANn/AQACAAIAAAARANj/AQACAAEAAAAQANn/AQACAAIAAAAQANj/AQACAAEAAAAPANn/AQACAAIAAAAPANj/AQAGAAMAAAAOANn/AQACAAIAAAAOANj/AQAGAAMAAAANANn/AQACAAIAAAANANj/AQACAAEAAAAMANn/AQACAAIAAAAMANj/AQACAAEAAAALANn/AQACAAIAAAALANj/AQACAAEAAAAKANn/AQACAAIAAAAKANj/AQAGAAMAAAAJANn/AQACAAIAAAAJANj/AQAGAAMAAAAIANn/AQACAAIAAAAIANj/AQAGAAMAAAAHANn/AQACAAIAAAAHANj/AQAGAAMAAAAGANn/AQACAAIAAAAGANj/AQACAAEAAAAFANn/AQACAAIAAAAFANj/AQACAAEAAAAEANn/AQACAAIAAAAEANj/AQAGAAMAAAADANn/AQACAAIAAAADANj/AQAGAAMAAAACANn/AQACAAIAAAACANj/AQAGAAMAAAABANn/AQACAAIAAAABANj/AQACAAEAAAAAANn/AQACAAIAAAAAANj/AQACAAEAAAD//9n/AQACAAIAAAD//9j/AQACAAEAAAD+/9n/AQACAAIAAAD+/9j/AQACAAEAAAD9/9n/AQACAAIAAAD9/9j/AQACAAEAAAD8/9n/AQACAAIAAAD8/9j/AQAGAAMAAAD7/9n/AQACAAIAAAD7/9j/AQACAAEAAAD6/9n/AQACAAIAAAD6/9j/AQACAAEAAAD5/9n/AQACAAIAAAD5/9j/AQAGAAMAAAD4/9n/AQACAAIAAAD4/9j/AQAGAAMAAAD3/9n/AQACAAIAAAD3/9j/AQAGAAMAAAD2/9n/AQACAAIAAAD2/9j/AQACAAEAAAD1/9n/AQACAAIAAAD1/9j/AQACAAEAAAD0/9n/AQACAAIAAAD0/9j/AQAGAAMAAADz/9n/AQACAAIAAADz/9j/AQAGAAMAAADy/9n/AQACAAIAAADy/9j/AQACAAEAAADx/9n/AQACAAIAAADx/9j/AQAGAAMAAADw/9n/AQACAAIAAADw/9j/AQACAAEAAADv/9n/AQACAAIAAADv/9j/AQACAAEAAADu/9n/AQACAAIAAADu/9j/AQACAAEAAADt/9n/AQACAAIAAADt/9j/AQAGAAMAAADs/9n/AQAHAAIAAADs/9j/AQABAAEAAADr//b/AQACAAIAAADr//X/AQAGAAMAAADq//b/AQACAAIAAADq//X/AQACAAEAAADp//b/AQACAAIAAADp//X/AQAGAAMAAADo//b/AQACAAIAAADo//X/AQAGAAMAAADn//b/AQACAAIAAADn//X/AQACAAEAAADm//b/AQAHAAIAAADm//X/AQABAAEAAADr//f/AQAHAAEAAADq//f/AQAGAAEAAADp//f/AQACAAMAAADo//f/AQAGAAEAAADn//f/AQAGAAEAAADm//f/AQABAAMAAADr//j/AQABAAMAAAAZAPf/AQADAAMAAAAZAPb/AQADAAIAAAAZAPX/AQADAAEAAAAYAPf/AQACAAMAAAAYAPb/AQACAAIAAAAYAPX/AQACAAEAAAAXAPf/AQAGAAEAAAAXAPb/AQACAAIAAAAXAPX/AQACAAEAAAAWAPf/AQACAAMAAAAWAPb/AQACAAIAAAAWAPX/AQAGAAMAAAAVAPf/AQACAAMAAAAVAPb/AQACAAIAAAAVAPX/AQAGAAMAAAAUAPf/AQAFAAEAAAAUAPb/AQACAAIAAAAUAPX/AQACAAEAAAAUAPj/AQADAAMAAADl//f/AAAEAAsAAADl//b/AAAEAAoAAADl//X/AAAEAAoAAADk//f/AAABAAsAAADk//b/AAABAAoAAADk//X/AAACAAgAAADj//f/AAABAAsAAADj//b/AAABAAoAAADj//X/AAABAAgAAADi//f/AAABAAsAAADi//b/AAABAAoAAADi//X/AAABAAgAAADh//f/AAABAAsAAADh//b/AAABAAoAAADh//X/AAABAAgAAADg//f/AAABAAsAAADg//b/AAABAAoAAADg//X/AAABAAgAAADf//f/AAABAAsAAADf//b/AAABAAoAAADf//X/AAABAAgAAADe//f/AAABAAsAAADe//b/AAABAAoAAADe//X/AAADAAgAAADd//f/AAAAAAsAAADd//b/AAAAAAkAAADd//X/AAAAAAkAAAAiAPf/AAAEAAsAAAAiAPb/AAAEAAoAAAAiAPX/AAAEAAkAAAAhAPf/AAABAAsAAAAhAPb/AAABAAoAAAAhAPX/AAACAAgAAAAgAPf/AAABAAsAAAAgAPb/AAABAAoAAAAgAPX/AAABAAgAAAAfAPf/AAABAAsAAAAfAPb/AAABAAoAAAAfAPX/AAABAAgAAAAeAPf/AAABAAsAAAAeAPb/AAABAAoAAAAeAPX/AAABAAgAAAAdAPf/AAABAAsAAAAdAPb/AAABAAoAAAAdAPX/AAABAAgAAAAcAPf/AAABAAsAAAAcAPb/AAABAAoAAAAcAPX/AAABAAgAAAAbAPf/AAABAAsAAAAbAPb/AAABAAoAAAAbAPX/AAADAAgAAAAaAPf/AAAAAAsAAAAaAPb/AAAAAAoAAAAaAPX/AAAAAAoAAAAiAPT/AAAEAAoAAAAiAPP/AAAEAAoAAAAiAPL/AAAEAAkAAAAiAPH/AAAEAAkAAAAiAPD/AAAEAAkAAAAiAO//AAAEAAkAAAAiAO7/AAAEAAoAAAAiAO3/AAAEAAkAAAAiAOz/AAAEAAoAAAAiAOv/AAAEAAkAAAAiAOr/AAAEAAoAAAAiAOn/AAAEAAkAAAAhAPT/AAAAAAkAAAAhAPP/AAAAAAkAAAAhAPL/AAAAAAkAAAAhAPH/AAAAAAoAAAAhAPD/AAACAAsAAAAhAO//AAABAAoAAAAhAO7/AAACAAgAAAAhAO3/AAAAAAoAAAAhAOz/AAAAAAkAAAAhAOv/AAAAAAoAAAAhAOr/AAAAAAkAAAAhAOn/AAAAAAoAAADe//T/AAAEAAoAAADe//P/AAAEAAkAAADe//L/AAAEAAoAAADe//H/AAAEAAkAAADe//D/AAADAAsAAADe/+//AAABAAoAAADe/+7/AAADAAgAAADe/+3/AAAEAAoAAADe/+z/AAAEAAoAAADe/+r/AAAEAAkAAADe/+n/AAAEAAkAAADd//T/AAAAAAoAAADd//P/AAAAAAkAAADd//L/AAAAAAkAAADd//H/AAAAAAkAAADd//D/AAAAAAoAAADd/+//AAAAAAkAAADd/+7/AAAAAAoAAADd/+3/AAAAAAoAAADd/+z/AAAAAAkAAADd/+v/AAAAAAoAAADd/+r/AAAAAAkAAADd/+n/AAAAAAkAAADe/+v/AAAEAAkAAAAbAPT/AAAEAAoAAAAbAPP/AAAEAAgAAAAaAPT/AAAAAAoAAAAaAPP/AAAAAAgAAAAgAPD/AAABAAsAAAAgAO//AAABAAoAAAAgAO7/AAABAAgAAAAfAPD/AAAAAAsAAAAfAO//AAAAAAkAAAAfAO7/AAAAAAgAAADl//T/AAAEAAoAAADl//P/AAAEAAgAAADk//T/AAAAAAkAAADk//P/AAAAAAgAAADf//D/AAABAAsAAADf/+//AAABAAoAAADf/+7/AAABAAgAAADg//D/AAAEAAsAAADg/+//AAAEAAkAAADg/+7/AAAEAAgAAADf//T/AAAEAA0AAADg//T/AAAEAA0AAADh//T/AAAEAA0AAADi//T/AAAEAA0AAADj//T/AAAEAA0AAAAcAPT/AAAEAA0AAAAdAPT/AAAEAA0AAAAeAPT/AAAEAA0AAAAfAPT/AAAEAA0AAAAgAPT/AAAEAA0AAADe/+j/AAAEAAoAAADe/+f/AAADAAsAAADe/+b/AAABAAgAAADd/+j/AAAAAAoAAADd/+f/AAAAAAoAAADd/+b/AAAAAAgAAADr/+f/AAAEAAsAAADr/+b/AAAEAAgAAADq/+f/AAABAAsAAADq/+b/AAABAAgAAADp/+f/AAABAAsAAADp/+b/AAABAAgAAADo/+f/AAABAAsAAADo/+b/AAABAAgAAADn/+f/AAABAAsAAADn/+b/AAABAAgAAADm/+f/AAABAAsAAADm/+b/AAABAAgAAADl/+f/AAABAAsAAADl/+b/AAABAAgAAADk/+f/AAABAAsAAADk/+b/AAABAAgAAADj/+f/AAABAAsAAADj/+b/AAABAAgAAADi/+f/AAABAAsAAADi/+b/AAABAAgAAADh/+f/AAABAAsAAADh/+b/AAABAAgAAADg/+f/AAABAAsAAADg/+b/AAABAAgAAADf/+f/AAABAAsAAADf/+b/AAABAAgAAAAiAOj/AAAEAAoAAAAiAOf/AAAEAAoAAAAiAOb/AAAEAAgAAAAhAOj/AAAAAAkAAAAhAOf/AAACAAsAAAAhAOb/AAABAAgAAAAgAOf/AAABAAsAAAAgAOb/AAABAAgAAAAfAOf/AAABAAsAAAAfAOb/AAABAAgAAAAeAOf/AAABAAsAAAAeAOb/AAABAAgAAAAdAOf/AAABAAsAAAAdAOb/AAABAAgAAAAcAOf/AAABAAsAAAAcAOb/AAABAAgAAAAbAOf/AAABAAsAAAAbAOb/AAABAAgAAAAaAOf/AAABAAsAAAAaAOb/AAABAAgAAAAZAOf/AAABAAsAAAAZAOb/AAABAAgAAAAYAOf/AAABAAsAAAAYAOb/AAABAAgAAAAXAOf/AAABAAsAAAAXAOb/AAABAAgAAAAWAOf/AAABAAsAAAAWAOb/AAABAAgAAAAVAOf/AAABAAsAAAAVAOb/AAABAAgAAAAUAOf/AAAAAAsAAAAUAOb/AAAAAAgAAAA=")
+metadata/_edit_lock_ = true
+
+[node name="JumpAreas" type="Node2D" parent="World" unique_id=839369902]
+
+[node name="Jump" parent="World/JumpAreas" unique_id=1353052995 instance=ExtResource("7_2irst")]
+position = Vector2(-464, -152)
+force = 1400.0
+
+[node name="Jump2" parent="World/JumpAreas" unique_id=1191102989 instance=ExtResource("7_2irst")]
+position = Vector2(-251, -440)
+force = 1600.0
+
+[node name="Jump3" parent="World/JumpAreas" unique_id=1290237369 instance=ExtResource("7_2irst")]
+position = Vector2(464, -152)
+force = 1400.0
+
+[node name="Jump4" parent="World/JumpAreas" unique_id=1936099592 instance=ExtResource("7_2irst")]
+position = Vector2(251, -440)
+force = 1600.0
+
+[node name="DamageAreas" type="Node2D" parent="World" unique_id=1360468765]
+
+[node name="DamageArea3" parent="World/DamageAreas" unique_id=271040129 instance=ExtResource("7_fgofq")]
+position = Vector2(0, -672)
+scale = Vector2(6.2096057, 2.4345198)
+kill = true
+
+[node name="DamageArea6" parent="World/DamageAreas" unique_id=312135647 instance=ExtResource("7_fgofq")]
+position = Vector2(976, -360)
+scale = Vector2(8.609605, 1.4345198)
+kill = true
+
+[node name="DamageArea7" parent="World/DamageAreas" unique_id=413475702 instance=ExtResource("7_fgofq")]
+position = Vector2(-976, -360)
+scale = Vector2(8.609605, 1.4345198)
+kill = true
+
+[node name="DamageArea4" parent="World/DamageAreas" unique_id=257757769 instance=ExtResource("7_fgofq")]
+position = Vector2(0, -704)
+scale = Vector2(8.804043, 1.1945148)
+kill = true
+
+[node name="DamageArea5" parent="World/DamageAreas" unique_id=158606369 instance=ExtResource("7_fgofq")]
+position = Vector2(0, -936)
+scale = Vector2(3.105145, 1.1945148)
+kill = true
+
+[node name="SpawnPoints" type="Node2D" parent="World" unique_id=1320074192]
+
+[node name="SpawnPoint" parent="World/SpawnPoints" unique_id=1616555879 instance=ExtResource("6_7lihs")]
+position = Vector2(0, 80)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoint2" parent="World/SpawnPoints" unique_id=1501227089 instance=ExtResource("6_7lihs")]
+position = Vector2(0, -432)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoint3" parent="World/SpawnPoints" unique_id=848079241 instance=ExtResource("6_7lihs")]
+position = Vector2(-448, -880)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoint4" parent="World/SpawnPoints" unique_id=1493691561 instance=ExtResource("6_7lihs")]
+position = Vector2(448, -880)
+metadata/_edit_lock_ = true
+
+[node name="Particles" type="Node2D" parent="World" unique_id=832889861]
+visible = false
+
+[node name="EnvParticles" type="GPUParticles2D" parent="World/Particles" unique_id=1019348166]
+position = Vector2(64, -64)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-736.5542, -532.99835, 1437.279, 1091.5417)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="EnvParticles5" type="GPUParticles2D" parent="World/Particles" unique_id=553172177]
+position = Vector2(1240, -376)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-628.0391, -720.57837, 1248.3369, 1296.4938)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="EnvParticles6" type="GPUParticles2D" parent="World/Particles" unique_id=1385502289]
+position = Vector2(1176, -944)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-645.5004, -648.40784, 1344.5001, 1300.5908)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="EnvParticles7" type="GPUParticles2D" parent="World/Particles" unique_id=1168018313]
+position = Vector2(2024, -536)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-523.5586, -603.7506, 1156.8364, 1064.0115)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="EnvParticles2" type="GPUParticles2D" parent="World/Particles" unique_id=2139975203]
+position = Vector2(48, -448)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-708.68854, -661.0698, 1348.8646, 1242.428)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="EnvParticles3" type="GPUParticles2D" parent="World/Particles" unique_id=203599847]
+position = Vector2(144, -1040)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-581.8409, -494.75903, 955.238, 864.87823)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="EnvParticles4" type="GPUParticles2D" parent="World/Particles" unique_id=1962607355]
+position = Vector2(-696, -432)
+amount = 22
+lifetime = 2.5
+speed_scale = 0.74
+fixed_fps = 20
+interpolate = false
+visibility_rect = Rect2(-650.2189, -534.7324, 1303.2759, 1094.9143)
+process_material = SubResource("ParticleProcessMaterial_3cx6b")
+
+[node name="AudioAreas" type="Node2D" parent="World" unique_id=663240118]
+
+[node name="AudioArea" parent="World/AudioAreas" unique_id=965407511 instance=ExtResource("9_bf53h")]
+position = Vector2(-80, -656)
+scale = Vector2(12.418995, 8.78069)
+audio_bus_name = &"AreaSmall"
+metadata/_edit_lock_ = true
+
+[node name="AudioArea2" parent="World/AudioAreas" unique_id=971797160 instance=ExtResource("9_bf53h")]
+position = Vector2(2272, -584)
+scale = Vector2(12.418995, 8.78069)
+audio_bus_name = &"AreaSmall"
+metadata/_edit_lock_ = true
+
+[node name="ParallaxBG" type="Node2D" parent="World" unique_id=395410577]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Platforms1" type="Parallax2D" parent="World/ParallaxBG" unique_id=298112217]
+z_index = -15
+scroll_scale = Vector2(0.818, 0.818)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1682203931]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.00003
+offset_top = -328.0
+offset_right = 166.38235
+offset_bottom = -79.55556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect17" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=2099780709]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -700.40076
+offset_top = -672.83954
+offset_right = -534.0037
+offset_bottom = -388.19763
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect18" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1128515827]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 704.0
+offset_top = -552.0
+offset_right = 870.39703
+offset_bottom = -267.3581
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect19" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1130018229]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 639.99634
+offset_top = -470.83954
+offset_right = 891.7316
+offset_bottom = -294.41156
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect20" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=194424428]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 856.0
+offset_top = -384.0
+offset_right = 1107.7354
+offset_bottom = -207.57202
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect21" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=361665345]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 976.0
+offset_top = -600.0
+offset_right = 1069.157
+offset_bottom = -423.57202
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect13" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1384116625]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -788.4009
+offset_top = -514.8395
+offset_right = -462.0185
+offset_bottom = -391.8766
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect14" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1549237224]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -564.4008
+offset_top = -450.8395
+offset_right = -398.00378
+offset_bottom = -327.87662
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect15" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=214656692]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -870.40076
+offset_top = -490.8395
+offset_right = -704.0037
+offset_bottom = -367.87662
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect16" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=541979450]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -870.40076
+offset_top = -490.8395
+offset_right = -704.0037
+offset_bottom = -367.87662
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect22" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1068680517]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -848.0
+offset_top = -390.0
+offset_right = -681.60297
+offset_bottom = -267.0371
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect23" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1716316188]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -672.0
+offset_top = -272.00003
+offset_right = -505.60297
+offset_bottom = -149.03714
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect24" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=246210291]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -984.0
+offset_top = -312.00003
+offset_right = -817.60297
+offset_bottom = -189.03714
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect25" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1997247926]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1080.0
+offset_top = -662.0
+offset_right = -913.60297
+offset_bottom = -539.0371
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect26" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=960697280]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1048.0
+offset_top = -448.0
+offset_right = -881.60297
+offset_bottom = -325.0371
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect27" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=2107130983]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -936.0001
+offset_top = -672.0
+offset_right = -769.6031
+offset_bottom = -549.0371
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1299169552]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 320.0
+offset_top = -600.0
+offset_right = 478.0
+offset_bottom = -351.55554
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=268371478]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = -224.0
+offset_right = -217.61761
+offset_bottom = 24.444443
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=571361082]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -584.0
+offset_top = -463.99997
+offset_right = -257.6176
+offset_bottom = -215.55551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1227580297]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = -447.99997
+offset_right = 542.3824
+offset_bottom = -199.55551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect6" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1667327897]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -568.0
+offset_right = -10.0
+offset_bottom = -319.55554
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=583634785]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = 64.0
+offset_right = -121.617615
+offset_bottom = 312.44446
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect8" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=1173354299]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 160.0
+offset_right = 270.3824
+offset_bottom = 408.44446
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect9" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=74658899]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.0
+offset_top = -479.99997
+offset_right = -314.0
+offset_bottom = -231.55551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect10" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=151783935]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = 216.0
+offset_right = -81.617615
+offset_bottom = 464.44446
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect11" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=154529891]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 221.0
+offset_right = 238.38239
+offset_bottom = 469.44446
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect12" type="NinePatchRect" parent="World/ParallaxBG/Platforms1" unique_id=323155864]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 184.0
+offset_right = 582.3824
+offset_bottom = 432.44446
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Platforms2" type="Parallax2D" parent="World/ParallaxBG" unique_id=1148559436]
+z_index = -15
+scroll_scale = Vector2(0.796, 0.796)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=321017195]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.00003
+offset_top = -328.0
+offset_right = 166.38235
+offset_bottom = -79.55556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1752165305]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -257.0
+offset_right = -193.61761
+offset_bottom = -8.555557
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect9" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=946620916]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 720.00006
+offset_top = -368.00003
+offset_right = 784.00006
+offset_bottom = -304.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect10" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1693506638]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -632.0
+offset_top = -400.00003
+offset_right = -568.0
+offset_bottom = -336.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1685608914]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -184.00003
+offset_right = 222.38239
+offset_bottom = 64.44441
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect4" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1136629022]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -176.0
+offset_right = 390.3824
+offset_bottom = 72.44444
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect5" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1813908816]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -511.99997
+offset_right = 518.3824
+offset_bottom = -263.5555
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect6" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=422551727]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.00002
+offset_top = -412.99997
+offset_right = 140.38237
+offset_bottom = -164.55551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect7" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1342965045]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = -383.99997
+offset_right = -81.617615
+offset_bottom = -135.55551
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect8" type="NinePatchRect" parent="World/ParallaxBG/Platforms2" unique_id=1755643566]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = -286.0
+offset_right = 470.3824
+offset_bottom = -37.555542
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Platforms3" type="Parallax2D" parent="World/ParallaxBG" unique_id=803222298]
+z_index = 5
+scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(0, -52)
+
+[node name="EnvParticles" type="GPUParticles2D" parent="World/ParallaxBG/Platforms3" unique_id=1856180091]
+position = Vector2(-18, -468)
+amount = 60
+lifetime = 3.0
+speed_scale = 0.74
+interpolate = false
+visibility_rect = Rect2(-732.8512, -732.02344, 1435.6019, 1370.432)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_rajel")
+
+[node name="Platform" type="NinePatchRect" parent="World/ParallaxBG/Platforms3" unique_id=187511019]
+visible = false
+modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
+light_mask = 22
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = 168.0
+offset_right = 544.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.285, 2.285)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 128, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DelayedCall" type="Node" parent="World/ParallaxBG/Platforms3/Platform" unique_id=1145915313]
+script = ExtResource("21_rajel")
+func_name = &"set_visible"
+args = [true]
+time = 0.0
+metadata/_custom_type_script = "uid://dg8q7ajb8qn7j"
+
+[node name="Brick" type="Parallax2D" parent="World/ParallaxBG" unique_id=1632780353]
+z_index = -35
+scroll_scale = Vector2(0.202, 0.202)
+
+[node name="Brick" type="Sprite2D" parent="World/ParallaxBG/Brick" unique_id=415823224]
+modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
+light_mask = 17
+texture_repeat = 2
+position = Vector2(648, -688)
+scale = Vector2(4.375, 3.0864196)
+texture = SubResource("CanvasTexture_wxwew")
+region_enabled = true
+region_rect = Rect2(0, 0, 896, 648)
+metadata/_edit_lock_ = true
+
+[node name="Props" type="Parallax2D" parent="World/ParallaxBG" unique_id=1397030635]
+z_index = -5
+scroll_scale = Vector2(0.969, 0.969)
+scroll_offset = Vector2(16, 0)
+
+[node name="MainGate" type="Sprite2D" parent="World/ParallaxBG/Props" unique_id=792396802]
+modulate = Color(0.8819366, 0.8819366, 0.88193655, 1)
+light_mask = 17
+texture_repeat = 2
+position = Vector2(0, 32)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("8_acvyw")
+region_enabled = true
+region_rect = Rect2(0, 448, 32, 48)
+
+[node name="Gates" type="Parallax2D" parent="World/ParallaxBG" unique_id=1859610426]
+z_index = -10
+scroll_scale = Vector2(0.916, 0.916)
+
+[node name="Sprite2D" type="NinePatchRect" parent="World/ParallaxBG/Gates" unique_id=1034398586]
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.74109
+offset_top = 48.0
+offset_right = 215.74112
+offset_bottom = 136.30936
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.503, 2.503)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("8_acvyw")
+region_rect = Rect2(32, 504, 32, 40)
+patch_margin_top = 32
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect12" type="NinePatchRect" parent="World/ParallaxBG/Gates" unique_id=941254364]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = 120.0
+offset_right = 1000.0
+offset_bottom = 233.55556
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 128, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Sprite2D3" type="NinePatchRect" parent="World/ParallaxBG/Gates" unique_id=2063080704]
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.74109
+offset_top = -933.63556
+offset_right = 215.74112
+offset_bottom = -845.32623
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.503, 2.503)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("8_acvyw")
+region_rect = Rect2(32, 504, 32, 40)
+patch_margin_top = 32
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect14" type="NinePatchRect" parent="World/ParallaxBG/Gates" unique_id=1762791610]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -861.6355
+offset_right = 1000.0
+offset_bottom = -748.07996
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Sprite2D2" type="NinePatchRect" parent="World/ParallaxBG/Gates" unique_id=319660709]
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.74109
+offset_top = -252.63553
+offset_right = 215.74112
+offset_bottom = -164.32617
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.503, 2.503)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("8_acvyw")
+region_rect = Rect2(32, 504, 32, 40)
+patch_margin_top = 32
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+
+[node name="NinePatchRect13" type="NinePatchRect" parent="World/ParallaxBG/Gates" unique_id=638303410]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1000.0
+offset_top = -180.63553
+offset_right = 1000.0
+offset_bottom = -67.07997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_x3xnh")
+region_rect = Rect2(16, 16, 48, 48)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1965684519]
+visible = false
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1174537971]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1955297850]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[connection signal="pressed" from="UI/PlayMenu/Host" to="UI/PlayMenu" method="_on_host_pressed"]
+[connection signal="pressed" from="UI/PlayMenu/Join" to="UI/PlayMenu" method="_on_join_pressed"]
+[connection signal="text_changed" from="UI/PlayMenu/Name" to="UI/PlayMenu" method="_on_name_text_changed"]
+[connection signal="pressed" from="UI/PlayMenu/Exit" to="UI/PlayMenu" method="_on_exit_pressed"]
+[connection signal="timeout" from="UI/PlayMenu/ConnectionTimer" to="UI/PlayMenu" method="_on_connection_timer_timeout"]
+[connection signal="pressed" from="UI/PlayMenu/SettingsPanel/SettingMenu" to="UI/PlayMenu/SettingsPanel/SettingMenu" method="_on_pressed"]
+[connection signal="pressed" from="UI/PlayMenu/SettingsPanel/SettingSound" to="UI/PlayMenu/SettingsPanel/SettingManager" method="_on_setting_sound_pressed"]

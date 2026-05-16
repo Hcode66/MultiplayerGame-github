@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c37q17psuy8bp"]
+
+[ext_resource type="Script" uid="uid://bukhxvrg6d466" path="res://Codes/DamageArea.gd" id="1_r1bjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mbh5"]
+
+[node name="DamageArea" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_r1bjs")
+
+[node name="Coll" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5mbh5")
+debug_color = Color(0.9607843, 0, 0, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

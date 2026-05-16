@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://cvcjlarp35we1"]
+
+[ext_resource type="Script" uid="uid://bx6d37btlo6l3" path="res://Codes/Jump.gd" id="1_euhid"]
+[ext_resource type="Texture2D" uid="uid://ew0ciexf40br" path="res://Sprites/Traps/Arrow/Idle (18x18).png" id="2_hp3ej"]
+[ext_resource type="Texture2D" uid="uid://dmduywnhhp56i" path="res://Sprites/Traps/Arrow/Hit (18x18).png" id="2_uiros"]
+[ext_resource type="Texture2D" uid="uid://bkpuwbr5u4o" path="res://Sprites/Other/Dust Particle.png" id="4_uiros"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjyx8"]
+atlas = ExtResource("2_uiros")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smosm"]
+atlas = ExtResource("2_uiros")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mpes"]
+atlas = ExtResource("2_uiros")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ltet"]
+atlas = ExtResource("2_uiros")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiros"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m21o5"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3601p"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2g55"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1m62"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(72, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxpy8"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(90, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5amjb"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(108, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8p0v"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(126, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3hw7"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(144, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ub8p"]
+atlas = ExtResource("2_hp3ej")
+region = Rect2(162, 0, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjyx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjyx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smosm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mpes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ltet")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiros")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m21o5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3601p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2g55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1m62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxpy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5amjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8p0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3hw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ub8p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_euhid"]
+radius = 23.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hp3ej"]
+properties/0/path = NodePath("Spr:animation")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath("GPUParticles2D:emitting")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[sub_resource type="Curve" id="Curve_m21o5"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.08333334, 1), 0.0, 0.0, 0, 0, Vector2(0.7797619, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3601p"]
+curve = SubResource("Curve_m21o5")
+
+[sub_resource type="Curve" id="Curve_uiros"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w2g55"]
+curve = SubResource("Curve_uiros")
+
+[sub_resource type="Curve" id="Curve_h1m62"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20833334, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5955056), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xxpy8"]
+curve = SubResource("Curve_h1m62")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5amjb"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 22.6
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 9.71
+initial_velocity_max = 82.53
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 15.529998
+damping_curve = SubResource("CurveTexture_w2g55")
+scale_min = 1.05
+scale_max = 2.85
+scale_curve = SubResource("CurveTexture_xxpy8")
+alpha_curve = SubResource("CurveTexture_3601p")
+
+[node name="Jump" type="Area2D" unique_id=1381432251]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_euhid")
+
+[node name="Spr" type="AnimatedSprite2D" parent="." unique_id=276636859]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_wjyx8")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427882668]
+shape = SubResource("CircleShape2D_euhid")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=483222140]
+replication_config = SubResource("SceneReplicationConfig_hp3ej")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1892765064]
+emitting = false
+amount = 32
+texture = ExtResource("4_uiros")
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5amjb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Spr" to="." method="_on_spr_animation_finished"]

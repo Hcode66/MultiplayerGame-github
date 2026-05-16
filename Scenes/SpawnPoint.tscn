@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bc1gyysut48s6"]
+
+[ext_resource type="Script" uid="uid://bghebr80syiiw" path="res://Codes/SpawnPoint.gd" id="1_54don"]
+[ext_resource type="Texture2D" uid="uid://diamrdd3g35r2" path="res://Sprites/Terrain/Tilesetv3.tres" id="2_t86hv"]
+[ext_resource type="Texture2D" uid="uid://wdlcxd4c8xss" path="res://Sprites/Other/circle2.png" id="3_t86hv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54don"]
+size = Vector2(32, 48)
+
+[sub_resource type="Curve" id="Curve_t86hv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.22023809, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_61p7r"]
+curve = SubResource("Curve_t86hv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fg8dm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(16, 1, 1)
+gravity = Vector3(0, -20, 0)
+scale_max = 5.85
+alpha_curve = SubResource("CurveTexture_61p7r")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.09999997
+
+[node name="SpawnPoint" type="Area2D" unique_id=1616555879]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_54don")
+
+[node name="Coll" type="CollisionShape2D" parent="." unique_id=979942352]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_54don")
+
+[node name="Spr" type="Sprite2D" parent="." unique_id=991031924]
+light_mask = 2
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+texture = ExtResource("2_t86hv")
+region_enabled = true
+region_rect = Rect2(64, 8, 16, 24)
+
+[node name="Light" type="PointLight2D" parent="." unique_id=1244929955]
+energy = 1.26
+range_item_cull_mask = 2
+texture = ExtResource("3_t86hv")
+texture_scale = 0.55
+height = 10.0
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=1730217743]
+position = Vector2(0, 16)
+amount = 24
+lifetime = 2.5999999999999996
+process_material = SubResource("ParticleProcessMaterial_fg8dm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

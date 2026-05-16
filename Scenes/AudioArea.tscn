@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfe6rfmpenjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2irst"]
+size = Vector2(192, 192)
+
+[node name="AudioArea" type="Area2D"]
+audio_bus_override = true
+
+[node name="Coll" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2irst")
+debug_color = Color(0.54162866, 0.54659635, 0.42272666, 0.05490196)

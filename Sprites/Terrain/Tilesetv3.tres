@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://diamrdd3g35r2"]
+
+[ext_resource type="Texture2D" uid="uid://b68xumamgb3ua" path="res://Sprites/Terrain/Tilesetv3/Tilesetv3.png" id="1_605e0"]
+[ext_resource type="Texture2D" uid="uid://bcik7jtk5vpn5" path="res://Sprites/Terrain/Tilesetv3/Tilesetv3_normal.png" id="2_fjvtw"]
+[ext_resource type="Texture2D" uid="uid://ctctoed433p5r" path="res://Sprites/Terrain/Tilesetv3/Tilesetv3_specular.png" id="3_bfrh6"]
+
+[resource]
+diffuse_texture = ExtResource("1_605e0")
+normal_texture = ExtResource("2_fjvtw")
+specular_texture = ExtResource("3_bfrh6")

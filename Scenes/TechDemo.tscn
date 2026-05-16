@@ -1,0 +1,508 @@
+[gd_scene format=4 uid="uid://bp5s4rughu0l6"]
+
+[ext_resource type="Texture2D" uid="uid://cyexymdxl5jet" path="res://Sprites/Other/Light.png" id="1_32ntw"]
+[ext_resource type="PackedScene" uid="uid://bsus5tnxor85o" path="res://Scenes/TileMapLayer.tscn" id="2_vcw26"]
+[ext_resource type="Texture2D" uid="uid://trnxwvtgfedw" path="res://Sprites/brickWallSpr.png" id="3_2fnn8"]
+[ext_resource type="Texture2D" uid="uid://cnwt74w4i3feh" path="res://Sprites/brickWallSpr_normal.png" id="4_1vdkk"]
+[ext_resource type="FontFile" uid="uid://bd7urk5rulad6" path="res://Sprites/Theme/OpenSans-Regular.ttf" id="5_vcw26"]
+[ext_resource type="Texture2D" uid="uid://c8q1jdd0g4kxy" path="res://Sprites/PlayerSprites/Idle.png" id="6_2fnn8"]
+
+[sub_resource type="Gradient" id="Gradient_om28l"]
+offsets = PackedFloat32Array(0, 0.28157896, 0.5973684)
+colors = PackedColorArray(1, 1, 1, 1, 0.77533036, 0.77533036, 0.77533036, 0.77533036, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0dioi"]
+gradient = SubResource("Gradient_om28l")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vy37c"]
+diffuse_texture = ExtResource("3_2fnn8")
+normal_texture = ExtResource("4_1vdkk")
+
+[sub_resource type="Animation" id="Animation_32ntw"]
+resource_name = "Anim"
+length = 24.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6.5, 12.900001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.07683582, 0.07683582, 0.07683582, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 13.1, 13.6, 14.000001),
+"transitions": PackedFloat32Array(1, -2, -2, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 12.900001, 13.6),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [0.0, 0.0, 3.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6.5, 11.6),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Info/explanation:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 2.9),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5.3, 6.5),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(118, -634), Vector2(118, -63)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SceneInfo:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(6.5, 11.6),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SceneInfo:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(11.6, 13.6, 14.000001),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-55, -229), Vector2(-55, -229), Vector2(21, -384)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SceneInfo:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(11.525, 12.124999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["This is a scene without the normal map and lighting.", "This is a scene with lighting and a normal map."]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SceneInfo:visible_ratio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(11.6, 12.200001, 12.900001),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PointLight2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(12.900001, 13.1, 13.6, 14.000001, 14.6, 19.1, 23.7),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(151, -1566), Vector2(151, -900), Vector2(151, -229), Vector2(151, -229), Vector2(151, -229), Vector2(470, -229), Vector2(-124, -229)]
+}
+
+[sub_resource type="Animation" id="Animation_vcw26"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.099985994, 0.099985994, 0.099985994, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Info/explanation:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, -634)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SceneInfo:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SceneInfo:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-55, -229)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SceneInfo:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["This is a scene without the normal map and lighting."]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SceneInfo:visible_ratio")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PointLight2D:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(151, -1566)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fnn8"]
+_data = {
+&"Anim": SubResource("Animation_32ntw"),
+&"RESET": SubResource("Animation_vcw26")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vcw26"]
+light_mode = 1
+
+[sub_resource type="FontVariation" id="FontVariation_2fnn8"]
+base_font = ExtResource("5_vcw26")
+variation_embolden = 0.39
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1vdkk"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om28l"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dioi"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy37c"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trsok"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luuoh"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vq37"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66a6e"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwuwe"]
+atlas = ExtResource("6_2fnn8")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_118pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om28l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy37c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trsok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luuoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vq37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66a6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwuwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=944420369]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1915451334]
+light_mask = 6
+position = Vector2(151, -1566)
+energy = 3.0
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_0dioi")
+texture_scale = 17.14
+height = 49.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PointLight2D" unique_id=1864797079]
+texture = ExtResource("1_32ntw")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D" unique_id=744461799]
+position = Vector2(-30, 25)
+energy = 3.0
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_0dioi")
+texture_scale = 22.09
+height = 49.0
+metadata/_edit_group_ = true
+
+[node name="TileMapLayer" parent="." unique_id=2100267893 instance=ExtResource("2_vcw26")]
+tile_map_data = PackedByteArray("AAACAAAAAQACAAkAAAACAP//AQACAAkAAAACAP7/AQACAAgAAAABAP7/AQABAAgAAAAAAP7/AQADAAMAAAD///7/AQACAAMAAAD+//7/AQABAAMAAAD9//7/AAAEAAoAAAD8/wEAAAABAAoAAAD8/wAAAAABAAoAAAD8////AAABAAoAAAD8//7/AAABAAoAAAAAAAMAAAAEAAoAAAAAAAIAAAAEAAgAAAAAAP3/AQADAAEAAAD//wMAAAABAAoAAAD//wIAAAABAAgAAAD///3/AQAFAAMAAAD+/wMAAAABAAoAAAD+/wIAAAABAAgAAAD+//3/AQAHAAIAAAD+//z/AQABAAEAAAASAAEAAQADAAoAAAASAAAAAQADAAgAAAARAAEAAQAGAAgAAAARAAAAAQAFAAoAAAARAP//AQADAAgAAAAQAAEAAQAGAAgAAAAQAAAAAQACAAkAAAAQAP//AQAFAAoAAAAPAAEAAQAGAAgAAAAPAAAAAQACAAkAAAAPAP//AQACAAkAAAAOAAEAAQAGAAgAAAAOAAAAAQACAAkAAAAOAP//AQAHAAoAAAANAAEAAQACAAoAAAANAAAAAQACAAkAAAANAP//AQACAAgAAAAMAAEAAQAGAAgAAAAMAAAAAQACAAkAAAAMAP//AQAFAAoAAAALAAEAAQAGAAgAAAALAAAAAQACAAkAAAALAP//AQACAAkAAAAKAAEAAQACAAoAAAAKAAAAAQACAAkAAAAKAP//AQACAAkAAAAJAAEAAQAFAAgAAAAJAAAAAQACAAkAAAAJAP//AQAHAAoAAAAIAAEAAQACAAkAAAAIAAAAAQAHAAoAAAAIAP//AQABAAgAAAAHAAAAAQAGAAoAAAAGAAAAAQAGAAoAAAAFAAEAAQAGAAgAAAAFAAAAAQAGAAoAAAAEAAEAAQACAAoAAAAEAAAAAQAFAAoAAAAEAP//AQAFAAkAAAADAAEAAQAGAAgAAAADAAAAAQACAAkAAAADAP//AQACAAkAAAAQAP7/AQADAAgAAAAPAP7/AQACAAgAAAAOAP7/AQABAAgAAAAMAP7/AQADAAgAAAALAP7/AQACAAgAAAAKAP7/AQAGAAoAAAAJAP7/AQABAAgAAAAEAP7/AQADAAgAAAADAP7/AQAGAAoAAAABAAMAAQABAAoAAAABAAIAAQABAAkAAAABAAAAAQACAAkAAAABAP//AQAHAAoAAAAAAAEAAQAGAAgAAAAAAAAAAQACAAkAAAAAAP//AQAGAAoAAAD//wEAAQACAAoAAAD//wAAAQACAAkAAAD/////AQACAAgAAAD+/wEAAQABAAoAAAD+/wAAAQAHAAkAAAD+////AQABAAgAAAD9/wEAAAAEAAkAAAD9/wAAAAAEAAoAAAD9////AAAEAAoAAAD7/wEAAAABAAoAAAD7/wAAAAABAAoAAAD7////AAABAAoAAAD7//7/AAABAAoAAAD9/wIAAAADAAgAAAD8/wIAAAABAAoAAAD9/wMAAAABAAoAAAD7/wIAAAABAAoAAAD8/wMAAAACAAsAAAD7/wMAAAABAAsAAAD9//3/AAAEAAkAAAD9//z/AAAEAAgAAAD8//3/AAABAAoAAAD8//z/AAABAAgAAAD7//3/AAABAAoAAAD7//z/AAABAAgAAAD5//7/AAABAAoAAAD5//3/AAABAAoAAAD5//z/AAADAAgAAAD4//7/AAABAAoAAAD4//3/AAABAAoAAAD4//z/AAABAAoAAAD3//7/AAAAAAoAAAD3//3/AAAAAAkAAAD3//z/AAAAAAkAAAD6/wEAAAABAAoAAAD6/wAAAAABAAoAAAD6////AAABAAoAAAD6//7/AAABAAoAAAD6//3/AAABAAoAAAD6//z/AAABAAgAAAD6/wIAAAACAAsAAAD5/wIAAAABAAsAAAD5/wEAAAABAAoAAAD5/wAAAAABAAoAAAD5////AAABAAoAAAD4/wIAAAABAAsAAAD4/wEAAAABAAoAAAD4/wAAAAABAAoAAAD4////AAABAAoAAAD3/wIAAAAAAAsAAAD3/wEAAAAAAAoAAAD3/wAAAAAAAAoAAAD3////AAAAAAkAAAD6/wMAAAAAAAsAAAD4//v/AAACAAgAAAD5//v/AAAEAAoAAAD3//v/AAAAAAgAAAD5//n/AAADAAsAAAD5//r/AAAEAAkAAAD6//n/AAAEAAsAAAD4//n/AAAAAAkAAAD6//j/AAAEAAgAAAD5//j/AAABAAgAAAD4//j/AAAAAAgAAAD4//r/AAAAAAkAAAD///z/AQADAAEAAAAOAAYAAAAEAAsAAAAOAAUAAAAEAAkAAAAOAAQAAAAEAAkAAAAOAAMAAAAEAAoAAAAOAAIAAAAEAAgAAAANAAYAAAABAAsAAAANAAUAAAABAAoAAAANAAQAAAABAAoAAAANAAMAAAABAAoAAAANAAIAAAABAAgAAAAMAAYAAAABAAsAAAAMAAUAAAABAAoAAAAMAAQAAAABAAoAAAAMAAMAAAABAAoAAAAMAAIAAAABAAgAAAALAAYAAAABAAsAAAALAAUAAAABAAoAAAALAAQAAAABAAoAAAALAAMAAAABAAoAAAALAAIAAAABAAgAAAAKAAYAAAABAAsAAAAKAAUAAAABAAoAAAAKAAQAAAACAAgAAAAKAAMAAAAAAAoAAAAKAAIAAAAAAAgAAAAJAAYAAAABAAsAAAAJAAUAAAABAAoAAAAJAAQAAAABAAgAAAAJAAMAAQADAAoAAAAIAAYAAAABAAsAAAAIAAUAAAABAAoAAAAIAAQAAAABAAgAAAAIAAMAAQABAAoAAAAHAAYAAAABAAsAAAAHAAUAAAABAAoAAAAHAAQAAAADAAgAAAAHAAMAAAAEAAgAAAAGAAYAAAABAAsAAAAGAAUAAAABAAoAAAAGAAQAAAABAAoAAAAGAAMAAAABAAgAAAAGAAIAAQABAAoAAAAFAAYAAAABAAsAAAAFAAUAAAABAAoAAAAFAAQAAAABAAoAAAAFAAMAAAADAAgAAAAFAAIAAAAEAAgAAAAEAAYAAAABAAsAAAAEAAUAAAABAAoAAAAEAAQAAAABAAoAAAAEAAMAAAABAAoAAAAEAAIAAAABAAgAAAADAAYAAAABAAsAAAADAAUAAAABAAoAAAADAAQAAAACAAgAAAADAAMAAAAAAAoAAAADAAIAAAAAAAgAAAACAAYAAAABAAsAAAACAAUAAAABAAoAAAACAAQAAAABAAgAAAAAAAYAAAABAAsAAAAAAAUAAAABAAoAAAAAAAQAAAADAAgAAAD//wYAAAABAAsAAAD//wUAAAABAAoAAAD//wQAAAABAAoAAAD+/wYAAAABAAsAAAD+/wUAAAABAAoAAAD+/wQAAAABAAoAAAD9/wYAAAABAAsAAAD9/wUAAAABAAoAAAD9/wQAAAABAAoAAAD8/wYAAAAAAAsAAAD8/wUAAAAAAAkAAAD8/wQAAAAAAAkAAAABAAYAAAABAAsAAAABAAUAAAABAAoAAAABAAQAAAABAAgAAAASAA4AAQAFAAIAAAASAA0AAQADAAIAAAASAAwAAQADAAIAAAASAAsAAQADAAIAAAASAAoAAQAFAAIAAAASAAkAAQAFAAIAAAASAAgAAQADAAIAAAASAAcAAQAFAAIAAAASAAYAAQADAAIAAAASAAUAAQADAAIAAAASAAQAAQADAAIAAAASAAMAAQAFAAIAAAASAAIAAQADAAEAAAARAA4AAQACAAIAAAARAA0AAQACAAIAAAARAAwAAQACAAIAAAARAAsAAQACAAIAAAARAAoAAQACAAIAAAARAAkAAQACAAIAAAARAAgAAQACAAIAAAARAAcAAQACAAIAAAARAAYAAQACAAIAAAARAAUAAQACAAIAAAARAAQAAQACAAIAAAARAAMAAQACAAIAAAARAAIAAQACAAEAAAAQAA4AAQACAAIAAAAQAA0AAQACAAIAAAAQAAwAAQACAAIAAAAQAAsAAQACAAIAAAAQAAoAAQACAAIAAAAQAAkAAQACAAIAAAAQAAgAAQACAAIAAAAQAAcAAQACAAIAAAAQAAYAAQACAAIAAAAQAAUAAQACAAIAAAAQAAQAAQACAAIAAAAQAAMAAQACAAIAAAAQAAIAAQAGAAMAAAAPAA4AAQACAAIAAAAPAA0AAQACAAIAAAAPAAwAAQACAAIAAAAPAAsAAQACAAIAAAAPAAoAAQACAAIAAAAPAAkAAQACAAIAAAAPAAgAAQACAAIAAAAPAAcAAQAHAAMAAAAPAAYAAQAHAAIAAAAPAAUAAQAHAAIAAAAPAAQAAQABAAIAAAAPAAMAAQAHAAIAAAAPAAIAAQABAAEAAAAOABEAAQAGAAEAAAAOABAAAQACAAIAAAAOAA8AAQACAAIAAAAOAA4AAQACAAIAAAAOAA0AAQACAAIAAAAOAAwAAQACAAIAAAAOAAsAAQACAAIAAAAOAAoAAQACAAIAAAAOAAkAAQACAAIAAAAOAAgAAQACAAIAAAAOAAcAAQACAAEAAAANABEAAQACAAMAAAANABAAAQACAAIAAAANAA8AAQACAAIAAAANAA4AAQACAAIAAAANAA0AAQACAAIAAAANAAwAAQACAAIAAAANAAsAAQACAAIAAAANAAoAAQACAAIAAAANAAkAAQACAAIAAAANAAgAAQACAAIAAAANAAcAAQAGAAMAAAAMABEAAQACAAMAAAAMABAAAQACAAIAAAAMAA8AAQACAAIAAAAMAA4AAQACAAIAAAAMAA0AAQACAAIAAAAMAAwAAQACAAIAAAAMAAsAAQACAAIAAAAMAAoAAQACAAIAAAAMAAkAAQACAAIAAAAMAAgAAQACAAIAAAAMAAcAAQAGAAMAAAALABEAAQACAAMAAAALABAAAQACAAIAAAALAA8AAQACAAIAAAALAA4AAQACAAIAAAALAA0AAQACAAIAAAALAAwAAQACAAIAAAALAAsAAQACAAIAAAALAAoAAQACAAIAAAALAAkAAQACAAIAAAALAAgAAQACAAIAAAALAAcAAQAGAAMAAAAKABEAAQACAAMAAAAKABAAAQACAAIAAAAKAA8AAQACAAIAAAAKAA4AAQACAAIAAAAKAA0AAQACAAIAAAAKAAwAAQACAAIAAAAKAAsAAQACAAIAAAAKAAoAAQACAAIAAAAKAAkAAQACAAIAAAAKAAgAAQACAAIAAAAKAAcAAQACAAEAAAAJABEAAQAGAAEAAAAJABAAAQACAAIAAAAJAA8AAQACAAIAAAAJAA4AAQACAAIAAAAJAA0AAQACAAIAAAAJAAwAAQACAAIAAAAJAAsAAQACAAIAAAAJAAoAAQACAAIAAAAJAAkAAQACAAIAAAAJAAgAAQACAAIAAAAJAAcAAQAGAAMAAAAIABEAAQACAAMAAAAIABAAAQACAAIAAAAIAA8AAQACAAIAAAAIAA4AAQACAAIAAAAIAA0AAQACAAIAAAAIAAwAAQACAAIAAAAIAAsAAQACAAIAAAAIAAoAAQACAAIAAAAIAAkAAQACAAIAAAAIAAgAAQACAAIAAAAIAAcAAQAGAAMAAAAHABEAAQACAAMAAAAHABAAAQACAAIAAAAHAA8AAQACAAIAAAAHAA4AAQACAAIAAAAHAA0AAQACAAIAAAAHAAwAAQACAAIAAAAHAAsAAQACAAIAAAAHAAoAAQACAAIAAAAHAAkAAQACAAIAAAAHAAgAAQACAAIAAAAHAAcAAQACAAEAAAAGABEAAQACAAMAAAAGABAAAQACAAIAAAAGAA8AAQACAAIAAAAGAA4AAQACAAIAAAAGAA0AAQACAAIAAAAGAAwAAQACAAIAAAAGAAsAAQACAAIAAAAGAAoAAQACAAIAAAAGAAkAAQACAAIAAAAGAAgAAQACAAIAAAAGAAcAAQAGAAMAAAAFABEAAQAGAAEAAAAFABAAAQACAAIAAAAFAA8AAQACAAIAAAAFAA4AAQACAAIAAAAFAA0AAQACAAIAAAAFAAwAAQACAAIAAAAFAAsAAQACAAIAAAAFAAoAAQACAAIAAAAFAAkAAQACAAIAAAAFAAgAAQACAAIAAAAFAAcAAQAGAAMAAAAEABEAAQACAAMAAAAEABAAAQACAAIAAAAEAA8AAQACAAIAAAAEAA4AAQACAAIAAAAEAA0AAQACAAIAAAAEAAwAAQACAAIAAAAEAAsAAQACAAIAAAAEAAoAAQACAAIAAAAEAAkAAQACAAIAAAAEAAgAAQACAAIAAAAEAAcAAQAGAAMAAAADABEAAQACAAMAAAADABAAAQACAAIAAAADAA8AAQACAAIAAAADAA4AAQACAAIAAAADAA0AAQACAAIAAAADAAwAAQACAAIAAAADAAsAAQACAAIAAAADAAoAAQACAAIAAAADAAkAAQACAAIAAAADAAgAAQACAAIAAAADAAcAAQACAAEAAAACABEAAQACAAMAAAACABAAAQACAAIAAAACAA8AAQACAAIAAAACAA4AAQACAAIAAAACAA0AAQACAAIAAAACAAwAAQACAAIAAAACAAsAAQACAAIAAAACAAoAAQACAAIAAAACAAkAAQACAAIAAAACAAgAAQACAAIAAAACAAcAAQACAAEAAAABABEAAQAGAAEAAAABABAAAQACAAIAAAABAA8AAQACAAIAAAABAA4AAQACAAIAAAABAA0AAQACAAIAAAABAAwAAQACAAIAAAABAAsAAQACAAIAAAABAAoAAQACAAIAAAABAAkAAQACAAIAAAABAAgAAQACAAIAAAABAAcAAQAGAAMAAAAAABEAAQAGAAEAAAAAABAAAQACAAIAAAAAAA8AAQACAAIAAAAAAA4AAQACAAIAAAAAAA0AAQACAAIAAAAAAAwAAQACAAIAAAAAAAsAAQACAAIAAAAAAAoAAQACAAIAAAAAAAkAAQACAAIAAAAAAAgAAQACAAIAAAAAAAcAAQAGAAMAAAD//xEAAQAGAAEAAAD//xAAAQACAAIAAAD//w8AAQACAAIAAAD//w4AAQACAAIAAAD//w0AAQACAAIAAAD//wwAAQACAAIAAAD//wsAAQACAAIAAAD//woAAQACAAIAAAD//wkAAQACAAIAAAD//wgAAQACAAIAAAD//wcAAQAGAAMAAAD+/xEAAQACAAMAAAD+/xAAAQACAAIAAAD+/w8AAQACAAIAAAD+/w4AAQACAAIAAAD+/w0AAQACAAIAAAD+/wwAAQACAAIAAAD+/wsAAQACAAIAAAD+/woAAQACAAIAAAD+/wkAAQACAAIAAAD+/wgAAQACAAIAAAD+/wcAAQACAAEAAAD9/xEAAQAGAAEAAAD9/xAAAQACAAIAAAD9/w8AAQACAAIAAAD9/w4AAQACAAIAAAD9/w0AAQACAAIAAAD9/wwAAQACAAIAAAD9/wsAAQACAAIAAAD9/woAAQACAAIAAAD9/wkAAQACAAIAAAD9/wgAAQACAAIAAAD9/wcAAQACAAEAAAD8/xEAAQACAAMAAAD8/xAAAQACAAIAAAD8/w8AAQACAAIAAAD8/w4AAQACAAIAAAD8/w0AAQACAAIAAAD8/wwAAQACAAIAAAD8/wsAAQACAAIAAAD8/woAAQACAAIAAAD8/wkAAQACAAIAAAD8/wgAAQACAAIAAAD8/wcAAQACAAEAAAD5/xEAAQACAAMAAAD5/xAAAQACAAIAAAD5/w8AAQACAAIAAAD5/w4AAQACAAIAAAD5/w0AAQACAAIAAAD5/wwAAQACAAIAAAD5/wsAAQACAAIAAAD5/woAAQACAAIAAAD5/wkAAQACAAIAAAD5/wgAAQACAAIAAAD5/wcAAQACAAIAAAD5/wYAAQACAAIAAAD5/wUAAQACAAIAAAD5/wQAAQAFAAMAAAD5/wMAAQADAAEAAAD4/xEAAQACAAMAAAD4/xAAAQACAAIAAAD4/w8AAQACAAIAAAD4/w4AAQACAAIAAAD4/w0AAQACAAIAAAD4/wwAAQACAAIAAAD4/wsAAQACAAIAAAD4/woAAQACAAIAAAD4/wkAAQACAAIAAAD4/wgAAQACAAIAAAD4/wcAAQACAAIAAAD4/wYAAQACAAIAAAD4/wUAAQACAAIAAAD4/wQAAQACAAIAAAD4/wMAAQACAAEAAAD3/xEAAQABAAMAAAD3/xAAAQABAAIAAAD3/w8AAQABAAIAAAD3/w4AAQABAAIAAAD3/w0AAQAHAAIAAAD3/wwAAQABAAIAAAD3/wsAAQABAAIAAAD3/woAAQABAAIAAAD3/wkAAQABAAIAAAD3/wgAAQAHAAIAAAD3/wcAAQAHAAIAAAD3/wYAAQABAAIAAAD3/wUAAQAHAAIAAAD3/wQAAQAHAAIAAAD3/wMAAQABAAEAAAD7/xEAAQACAAMAAAD7/xAAAQACAAIAAAD7/w8AAQACAAIAAAD7/w4AAQACAAIAAAD7/w0AAQACAAIAAAD7/wwAAQACAAIAAAD7/wsAAQACAAIAAAD7/woAAQACAAIAAAD7/wkAAQACAAIAAAD7/wgAAQACAAIAAAD7/wcAAQAFAAMAAAD7/wYAAQADAAIAAAD7/wUAAQADAAIAAAD7/wQAAQADAAEAAAD6/xEAAQAGAAEAAAD6/xAAAQACAAIAAAD6/w8AAQACAAIAAAD6/w4AAQACAAIAAAD6/w0AAQACAAIAAAD6/wwAAQACAAIAAAD6/wsAAQACAAIAAAD6/woAAQACAAIAAAD6/wkAAQACAAIAAAD6/wgAAQACAAIAAAD6/wcAAQACAAIAAAD6/wYAAQACAAIAAAD6/wUAAQACAAIAAAD6/wQAAQAGAAMAAAASABEAAQADAAMAAAASABAAAQAFAAIAAAASAA8AAQADAAIAAAARABEAAQACAAMAAAARABAAAQACAAIAAAARAA8AAQACAAIAAAAQABEAAQAGAAEAAAAQABAAAQACAAIAAAAQAA8AAQACAAIAAAAPABEAAQACAAMAAAAPABAAAQACAAIAAAAPAA8AAQACAAIAAAACAAMAAQADAAoAAAACAAIAAQADAAkAAAACAAEAAQAFAAgAAAABAAEAAQAHAAgAAAAHAAEAAQACAAkAAAAGAAEAAQAHAAgAAAAIAAIAAQAHAAgAAAAHAAIAAQACAAoAAAAJAAIAAQAFAAkAAAAKAPz/AAACAAgAAAAKAP3/AAABAAsAAAAJAP3/AAAAAAsAAAALAP3/AAABAAsAAAAMAP3/AAAEAAsAAAALAPz/AAADAAgAAAAJAPz/AAAAAAgAAAAMAPz/AAAEAAgAAAAKAPv/AAAAAAgAAAALAPv/AAAEAAgAAAA=")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1108689104]
+color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1649037278]
+z_index = -15
+offset_left = -64.0
+offset_top = -47.0
+offset_right = 36.0
+offset_bottom = 53.0
+scale = Vector2(30, 30)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=77208459]
+z_index = -20
+texture_repeat = 2
+scale = Vector2(2.33, 2.33)
+texture = SubResource("CanvasTexture_vy37c")
+region_enabled = true
+region_rect = Rect2(0, 0, 1328, 1224)
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=117733696]
+libraries/ = SubResource("AnimationLibrary_2fnn8")
+autoplay = &"Anim"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1286588897]
+position = Vector2(118, -634)
+position_smoothing_enabled = true
+
+[node name="SceneInfo" type="RichTextLabel" parent="." unique_id=373159071]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_vcw26")
+offset_left = -55.0
+offset_top = -229.0
+offset_right = 561.0
+offset_bottom = -161.0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "This is a scene without the normal map and lighting."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Info" type="RichTextLabel" parent="." unique_id=1040019119]
+offset_left = -147.0
+offset_top = -907.0
+offset_right = 383.0
+offset_bottom = -609.0
+theme_override_fonts/normal_font = SubResource("FontVariation_2fnn8")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/bold_font_size = 19
+bbcode_enabled = true
+text = "[color=black]What is a normal map
+A normal map is a special type of RGB texture used in 3D computer graphics to fake complex lighting, bumps, and dents on a model’s surface without increasing its polygon count."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 21
+visible_ratio = 0.108
+
+[node name="explanation" type="RichTextLabel" parent="Info" unique_id=2095239736]
+layout_mode = 0
+offset_right = 530.0
+offset_bottom = 298.0
+theme_override_fonts/normal_font = SubResource("FontVariation_2fnn8")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_font_sizes/bold_font_size = 19
+bbcode_enabled = true
+text = "[color=black]
+A normal map is a special type of RGB texture used in 3D computer graphics to fake complex lighting, bumps, and dents on a model’s surface without increasing its polygon count."
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=695192664]
+material = SubResource("CanvasItemMaterial_1vdkk")
+position = Vector2(210, -22)
+sprite_frames = SubResource("SpriteFrames_118pf")
+frame_progress = 0.16251718
