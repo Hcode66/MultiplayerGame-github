@@ -50,7 +50,6 @@ enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", 
 folder_colors={
 "res://Codes/": "green",
 "res://Scenes/": "yellow",
-"res://Shaders/": "purple",
 "res://Sprites/": "red"
 }
 
