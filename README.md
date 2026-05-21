@@ -74,7 +74,7 @@ This project was created as a personal portfolio project to demonstrate proficie
    - Run other instances as **Client**
 
 ---
-
+```
 ## 📁 Project Structure
 MultiplayerGame/
 ├── Codes/           # All GDScript files (Player, Networking, UI, etc.)
@@ -82,7 +82,8 @@ MultiplayerGame/
 ├── Sprites/         # Pixel art assets + normal maps
 ├── Audio/           # Sound effects
 └── Build/           # Exported versions
-text---
+```
+
 
 ## 🎓 Project Purpose
 
