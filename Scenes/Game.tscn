@@ -1098,6 +1098,9 @@ alpha_curve = SubResource("CurveTexture_3so38")
 diffuse_texture = ExtResource("3_kldst")
 normal_texture = ExtResource("2_dahhg")
 
+[sub_resource type="LabelSettings" id="LabelSettings_x3xnh"]
+font_size = 14
+
 [node name="Game" type="Node2D" unique_id=746697199]
 metadata/_edit_horizontal_guides_ = [-1216.0]
 
@@ -2620,6 +2623,8 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+label_settings = SubResource("LabelSettings_x3xnh")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="UI/PlayMenu/Host" to="UI/PlayMenu" method="_on_host_pressed"]
 [connection signal="pressed" from="UI/PlayMenu/Join" to="UI/PlayMenu" method="_on_join_pressed"]

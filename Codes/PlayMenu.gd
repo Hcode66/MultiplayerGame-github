@@ -92,7 +92,7 @@ func _process(_delta: float) -> void:
 	## TODO: CHANGE LIGHT WITH BASIC SPRITE FOR FPS 
 	lerp_light(get_global_mouse_position(),10)
 	## DEBUG !!!, DELETE ME !!!
-	debug_label.text = str("FPS:",Engine.get_frames_per_second(), " / AVG:")
+	debug_label.text = str("FPS:",Engine.get_frames_per_second())
 
 
 func _on_exit_pressed() -> void:
