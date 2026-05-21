@@ -88,11 +88,11 @@ func lerp_light(to: Vector2, t: float = 10):
 	#light.global_position = light.global_position.lerp(to, get_process_delta_time() * t)
 	light.global_position = snapped(to,Vector2.ONE*t)
 
-func _process(delta: float) -> void:
-	
+func _process(_delta: float) -> void:
+	## TODO: CHANGE LIGHT WITH BASIC SPRITE FOR FPS 
 	lerp_light(get_global_mouse_position(),10)
-	## DEBUG !!!
-	debug_label.text = str("FPS:",Engine.get_frames_per_second(), " / AVG:", util.avgFps, gonet.get_data("upg_count"))
+	## DEBUG !!!, DELETE ME !!!
+	debug_label.text = str("FPS:",Engine.get_frames_per_second(), " / AVG:")
 
 
 func _on_exit_pressed() -> void:
