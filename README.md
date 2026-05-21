@@ -5,7 +5,7 @@
 
 **Multiplayer platformer / action game** developed in **Godot 4**. Features smooth player movement, combat system, upgrade mechanics, enemy AI, and real-time multiplayer support.
 
-This project was created as a personal portfolio project to demonstrate proficiency in game development, networked gameplay, shader programming, and clean architecture.
+This project was created as a personal portfolio project to demonstrate proficiency in game development, networked gameplay, and clean architecture.
 
 ---
 
