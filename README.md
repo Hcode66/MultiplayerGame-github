@@ -58,9 +58,9 @@ This project was created as a personal portfolio project to demonstrate proficie
 
 
 
-![Gameplay](screenshots/gameplay.png)
-![Upgrade Menu](screenshots/upgrade.png)
-![Multiplayer](screenshots/multiplayer.png)
+![Gameplay](Sprites/Screenshots/gameplay.png)
+![Upgrade Menu](Sprites/Screenshots/upg_menu.png)
+![Menu](Sprites/Screenshots/menu.png)
 
 ---
 
